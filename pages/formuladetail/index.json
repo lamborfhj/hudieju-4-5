@@ -1,0 +1,11 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "公示详情",
+    "navigationBarBackgroundColor": "#292929",
+    "backgroundColor": "#F5f5f5",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "parser": "../Parser/index"
+    }
+}

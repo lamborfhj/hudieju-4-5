@@ -1,0 +1,8 @@
+.weui-cell_without_border::before {
+  content: none !important;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}

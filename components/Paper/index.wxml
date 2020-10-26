@@ -1,0 +1,11 @@
+
+    <view class="weui-cell" key="{{props.data.id}}" bindtap="dispatchEvent" data-tap-uid="e17_55" data-beacon-uid="default">
+        <view class="weui-cell__hd" style="margin-right: 10px;">
+            <image src="{{props.data.avatarUrl}}" class="avatar" />
+        </view>
+        <view class="weui-cell__bd">
+            <view>{{props.data.title}}</view>
+            <view style="font-size: 13px;color: #888888;">{{"发函日期: " + props.data.createTime}}</view>
+            <view style="font-size: 13px;color: #c8894e;">{{props.data.statusCn}}</view>
+        </view>
+    </view>

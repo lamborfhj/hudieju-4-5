@@ -1,0 +1,16 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#292929",
+    "backgroundColor": "#F5f5f5",
+    "usingComponents": {
+        "anu-stamp": "/components/Stamp/index",
+        "anu-vote": "/components/Vote/index",
+        "anu-meeting": "/components/Meeting/index",
+        "anu-bill": "/components/Bill/index",
+        "anu-paper": "/components/Paper/index",
+        "anu-notice": "/components/Notice/index",
+        "anu-formula": "/components/Formula/index"
+    }
+}

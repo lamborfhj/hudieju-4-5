@@ -1,0 +1,7 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e107_16" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd"><textarea name="content" class="weui-textarea" placeholder="请填写本次会议纪要" /></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.imgs}}" wx:for-item="url" wx:for-index="i3077" wx:key="*this"><view class="weui-uploader__file" bindtap="dispatchEvent" bindlongpress="dispatchEvent" data-tap-uid="{{'e119_22_' + i3077}}" data-beacon-uid="default" data-longpress-uid="{{'e120_22_' + i3077}}"><image src="{{url}}" class="img_small" /></view></block><block wx:if="{{state.maxImageNum - state.imgs.length > 0}}"><view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="e125_54" data-beacon-uid="default"><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/avatar.png' class="img_small" /></view></block></view></view></view><view class="bottom_btn_area"><button formType="submit" disabled="{{state.disabled}}">提交</button></view></form></view></view>

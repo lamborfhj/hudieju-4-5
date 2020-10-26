@@ -1,0 +1,93 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-panel">
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__hd" style="margin-right: 10px;">
+                                <image src="{{state.detail.avatarUrl}}" class="avatar" />
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view>{{state.detail.name}}的报销申请</view>
+                                <view style="font-size: 13px;color: #c8894e;">{{state.detail.statusCn}}</view>
+                            </view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">申请人：</text><text>{{state.detail.name}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">发生日期：</text><text>{{state.detail.happenDate}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">金额：</text><text>¥{{state.detail.money}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">报销内容：</text><text>{{state.detail.content}}</text></view>
+                        </view>
+                        <block wx:if="{{state.imgs.length}}">
+                            <view class="weui-cell">
+                                <view class="weui-cell__bd">
+                                    <block wx:for="{{state.imgs}}" wx:for-item="url" wx:for-index="i5329" wx:key="*this">
+                                        <view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="{{'e169_26_' + i5329}}" data-beacon-uid="default">
+                                            <image src="{{url}}" class="img_small" />
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">审批人</view>
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <block wx:if="{{state.detail.verifyMemberEntityList}}">
+                            <block wx:for="{{state.detail.verifyMemberEntityList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                <block>
+                                    <view class="weui-cell weui-cell_without_border">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;" bindtap="dispatchEvent" data-tap-uid="{{'e189_80_' + index}}" data-beacon-uid="default">
+                                            <image src="{{item.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.memberRealname}}</view>
+                                            <view style="font-size: 13px;color: #888888;">
+                                                <block wx:if="{{item.verifyTime}}">{{"审核时间:" + item.verifyTime}}</block>
+                                            </view>
+                                            <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                        </view>
+                                    </view>
+                                    <block wx:if="{{state.detail.verifyMemberEntityList && state.detail.verifyMemberEntityList.length > index + 1}}">
+                                        <view style="background-color:black;width:1px;height:30px;margin-left:40px;"></view>
+                                    </block>
+                                </block>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">抄送人</view>
+                <view class="weui-panel__bd">
+                    <block wx:if="{{state.detail.copyToMemberEntityList && state.detail.copyToMemberEntityList.length}}">
+                        <view class="weui-cell weui-cell_without_border">
+                            <view class="weui-cell__bd">
+                                <block wx:for="{{state.detail.copyToMemberEntityList}}" wx:for-item="member" wx:for-index="i7728" wx:key="id">
+                                    <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                        <view>
+                                            <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                        </view>
+                                        <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.memberRealname}}</text></view>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <block wx:if="{{state.isAuditor && state.detail.memberStatus == 0}}">
+                <view class="bottom_btn_area"><button bindtap="dispatchEvent" data-tap-uid="e231_22" data-beacon-uid="default">不同意</button><button bindtap="dispatchEvent" data-tap-uid="e232_22" data-beacon-uid="default">同意</button></view>
+            </block>
+        </view>
+    </view>

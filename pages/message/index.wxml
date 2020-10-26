@@ -1,0 +1,50 @@
+
+    <view class="page">
+        <view class="page__bd">
+            <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e90_39" data-beacon-uid="default">
+                <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                    <view class="weui-panel weui-panel_access" bindtap="dispatchEvent" data-tap-uid="{{'e93_73_' + index}}" data-beacon-uid="default">
+                        <view class="weui-panel__hd">{{item.message.data.first.value}}</view>
+                        <block wx:if="{{item.type == \"meeting\"}}">
+                            <view class="weui-panel__bd">
+                                <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                                    <view class="weui-cell">
+                                        <view class="weui-cell__hd">会议名称：</view>
+                                        <view class="weui-cell__bd">{{item.message.data.keyword1.value}}</view>
+                                    </view>
+                                    <view class="weui-cell">
+                                        <view class="weui-cell__hd">会议时间：</view>
+                                        <view class="weui-cell__bd">{{item.message.data.keyword2.value}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:elif="true">
+                            <view class="weui-panel__bd">
+                                <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                                    <view class="weui-cell">
+                                        <view class="weui-cell__hd">流程名称：</view>
+                                        <view class="weui-cell__bd">{{item.message.data.keyword1.value}}</view>
+                                    </view>
+                                    <view class="weui-cell">
+                                        <view class="weui-cell__hd">发起人：</view>
+                                        <view class="weui-cell__bd">{{item.message.data.keyword2.value}}</view>
+                                    </view>
+                                    <view class="weui-cell">
+                                        <view class="weui-cell__hd">发起时间：</view>
+                                        <view class="weui-cell__bd">{{item.message.data.keyword3.value}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="weui-panel__ft">
+                            <view class="weui-cell weui-cell_access weui-cell_link">
+                                <view class="weui-cell__bd">查看详情</view>
+                                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+    </view>

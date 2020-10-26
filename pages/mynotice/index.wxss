@@ -1,0 +1,18 @@
+.bottom_btn_area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+}
+.bottom_btn_area > .division {
+  width: 1px;
+  background-color: #666666;
+}
+.bottom_btn_area > button {
+  background-color: #413d3c;
+  color: #ffffff;
+  border-radius: 0;
+  flex: 1;
+}

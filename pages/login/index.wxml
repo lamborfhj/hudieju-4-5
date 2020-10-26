@@ -1,0 +1,13 @@
+
+    <view>
+        <view class='header'>
+            <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/wx_login.png'></image>
+        </view>
+        <view class='content'>
+            <view>申请获取以下权限</view><text>获得你的公开信息(昵称，头像等)</text>
+            <view style="margin-top: 40rpx;">
+                <checkbox-group bindchange="dispatchEvent" data-change-uid="e98_28" data-beacon-uid="default"><label>
+                        <checkbox value="{{!state.isNotAgree}}" />阅读并同意<text style="color:#4385f5;" catchtap="dispatchEvent" data-tap-uid="e100_93" data-beacon-uid="default">《用户协议》</text></label></checkbox-group>
+            </view>
+        </view><button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" disabled="{{state.isNotAgree}}" bindgetuserinfo="dispatchEvent" data-getuserinfo-uid="e110_10" data-beacon-uid="default">授权</button>
+    </view>

@@ -1,0 +1,13 @@
+.weui-cells_without_border::before,
+.weui-cells_without_border::after {
+  content: none !important;
+}
+.icon_star {
+  color: red;
+  padding-right: 1px;
+}
+.bottom_btn_area > button {
+  background-color: #413d3c;
+  color: #ffffff;
+  border-radius: 0;
+}

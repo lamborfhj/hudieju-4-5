@@ -1,0 +1,76 @@
+/* 可在这里引入需要的自定义样式 */
+
+/* 链接受到点击的hover-class，可自定义修改 */
+.navigator-hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+/* 以下内容不建议修改 */
+:host {
+  display: inherit;
+  float: inherit;
+}
+._a {
+	display: inline;
+	color: #366092;
+}
+._sub, ._sup, ._bdo, ._bdi, ._ruby, ._rt {
+  display: inline-block !important;
+}
+._div, ._blockquote, ._p {
+  display:block;
+}
+._b, ._strong {
+  display: inline;
+  font-weight: bold;
+}
+._em, ._i {
+  display: inline;
+  font-style: italic;
+}
+._del {
+  display: inline;
+  text-decoration: line-through;
+}
+._ins {
+  display: inline;
+  text-decoration: underline;
+}
+._code {
+  display: inline;
+  font-family: monospace;
+}
+._big {
+  font-size:1.2em;
+  display:inline;
+}
+._small {
+  font-size:0.8em;
+  display:inline;
+}
+._q, ._span, ._label, ._abbr {
+  display: inline;
+}
+._q::before {
+  content: '"';
+}
+._q::after {
+  content: '"';
+}
+._video {
+  background-color: black;
+  width: 300px;
+  height: 225px;
+  display: inline-block;
+  position: relative;
+}
+._video::after {
+  content: '';
+  border-width: 15px 0 15px 30px;
+  border-style: solid;
+  border-color: transparent transparent transparent white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+}

@@ -1,0 +1,196 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-panel">
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__hd" style="margin-right: 10px;">
+                                <image src="{{state.detail.avatarUrl}}" class="avatar" />
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view>{{state.detail.title}}</view>
+                                <view style="font-size: 13px;color: #c8894e;">{{state.detail.statusCn}}</view>
+                            </view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">开始时间：</text><text>{{state.detail.startAt}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">会议地点：</text><text>{{state.detail.location}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">预估时长：</text><text>{{state.detail.spendTime}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">参会人数：</text><text>{{state.detail.meetingMemberEntityList && state.detail.meetingMemberEntityList.length}}人</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">详情：</text><text>{{state.detail.content}}</text></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <block wx:if="{{state.detail.type == 0}}">
+                <block>
+                    <view class="weui-panel">
+                        <view class="weui-panel__hd" bindtap="dispatchEvent" data-tap-uid="e302_45" data-beacon-uid="default">
+                            <view class="weui-cell" style="padding: 0">
+                                <view class="weui-cell__hd">未签到</view>
+                                <view class="weui-cell__bd"></view>
+                                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                            </view>
+                        </view>
+                        <view class="weui-panel__bd">
+                            <block wx:if="{{state.detail.meetingMemberEntityList && state.detail.meetingMemberEntityList.length}}">
+                                <view class="weui-cell weui-cell_without_border">
+                                    <view class="weui-cell__bd">
+                                        <block wx:for="{{state.detail.meetingMemberEntityList}}" wx:for-item="member" wx:for-index="i10054" wx:key="id">
+                                            <block wx:if="{{member.status == 0}}">
+                                                <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                                    <view>
+                                                        <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                                    </view>
+                                                    <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.memberRealname}}</text></view>
+                                                </view>
+                                            </block>
+                                        </block>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="weui-panel">
+                        <view class="weui-panel__hd" bindtap="dispatchEvent" data-tap-uid="e326_45" data-beacon-uid="default">
+                            <view class="weui-cell" style="padding: 0">
+                                <view class="weui-cell__hd">已签到</view>
+                                <view class="weui-cell__bd"></view>
+                                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                            </view>
+                        </view>
+                        <view class="weui-panel__bd">
+                            <block wx:if="{{state.detail.meetingMemberEntityList && state.detail.meetingMemberEntityList.length}}">
+                                <view class="weui-cell weui-cell_without_border">
+                                    <view class="weui-cell__bd">
+                                        <block wx:for="{{state.detail.meetingMemberEntityList}}" wx:for-item="member" wx:for-index="i11402" wx:key="id">
+                                            <block wx:if="{{member.status > 0}}">
+                                                <view class="weui-uploader__file" style='text-align:center;width:60px;' bindtap="dispatchEvent" data-tap-uid="{{'e338_114_' + i11402}}" data-beacon-uid="default">
+                                                    <view>
+                                                        <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                                    </view>
+                                                    <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.memberRealname}}</text></view>
+                                                </view>
+                                            </block>
+                                        </block>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </block>
+            <block wx:if="{{state.detail.type == 1}}">
+                <view class="weui-panel">
+                    <view class="weui-panel__hd">签到表</view>
+                    <view class="weui-panel__bd">
+                        <block wx:if="{{state.detail.meetingMemberEntityList && state.detail.meetingMemberEntityList.length}}">
+                            <view class="weui-cell">
+                                <view class="weui-cell__bd">
+                                    <block wx:for="{{state.detail.meetingMemberEntityList}}" wx:for-item="member" wx:for-index="i12523" wx:key="id">
+                                        <block wx:if="{{member.signInUrl}}">
+                                            <view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="{{'e361_26_' + i12523}}" data-beacon-uid="default">
+                                                <image src="{{member.signInUrl}}" class="img_small" />
+                                            </view>
+                                        </block>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </block>
+            <view class="weui-panel">
+                <view class="weui-panel__hd" bindtap="dispatchEvent" data-tap-uid="e374_41" data-beacon-uid="default">
+                    <view class="weui-cell" style="padding: 0">
+                        <view class="weui-cell__hd">已签字</view>
+                        <view class="weui-cell__bd"></view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </view>
+                </view>
+                <view class="weui-panel__bd">
+                    <block wx:if="{{state.detail.meetingMemberEntityList && state.detail.meetingMemberEntityList.length}}">
+                        <view class="weui-cell weui-cell_without_border">
+                            <view class="weui-cell__bd">
+                                <block wx:for="{{state.detail.meetingMemberEntityList}}" wx:for-item="member" wx:for-index="i13765" wx:key="id">
+                                    <block wx:if="{{member.status > 1}}">
+                                        <view class="weui-uploader__file" style='text-align:center;width:60px;' bindtap="dispatchEvent" data-tap-uid="{{'e386_110_' + i13765}}" data-beacon-uid="default">
+                                            <view>
+                                                <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                            </view>
+                                            <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.memberRealname}}</text></view>
+                                        </view>
+                                    </block>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">会议纪要</view>
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <block wx:if="{{state.detail.meetingLogEntityList}}">
+                            <block wx:for="{{state.detail.meetingLogEntityList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                <block>
+                                    <view class="weui-cell weui-cell_without_border">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                                            <image src="{{item.meetingLogMemberAvatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.memberRealname}}</view>
+                                            <view style="font-size: 13px;color: #898989;">{{item.createTime}}</view>
+                                            <view style="font-size: 13px;">{{item.content}}</view>
+                                            <block wx:if="{{item.fileList.length}}">
+                                                <block wx:for="{{item.fileList}}" wx:for-item="file" wx:for-index="i15422" wx:key="*this">
+                                                    <view style="font-size: 13px;color:blue;" bindtap="dispatchEvent" data-tap-uid="{{'e415_30_' + index + '-' + i15422}}" data-beacon-uid="default">{{file.name}}</view>
+                                                </block>
+                                            </block>
+                                            <block wx:if="{{item.imageList.length}}">
+                                                <view style="padding: 5px 0px">
+                                                    <block wx:for="{{item.imageList}}" wx:for-item="file" wx:for-index="i15910" wx:key="url">
+                                                        <view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="{{'e425_34_' + index + '-' + i15910}}" data-beacon-uid="default">
+                                                            <image src="{{file.url}}" class="img_small" />
+                                                        </view>
+                                                    </block>
+                                                </view>
+                                            </block>
+                                        </view>
+                                    </view>
+                                    <block wx:if="{{state.detail.meetingLogEntityList && state.detail.meetingLogEntityList.length > index + 1}}">
+                                        <view style="background-color:black;width:1px;height:30px;margin-left:40px;"></view>
+                                    </block>
+                                </block>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <block wx:if="{{state.detail.type == 0}}">
+                <view class="bottom_btn_area">
+                    <block wx:if="{{state.isAuditor && state.detail.memberStatus == 0 && state.detail.status < 2}}"><button bindtap="dispatchEvent" data-tap-uid="e453_24" data-beacon-uid="default">签到</button></block>
+                    <block wx:if="{{state.isAuditor && state.detail.memberStatus == 1 && state.detail.status == 1}}"><button bindtap="dispatchEvent" data-tap-uid="e456_24" data-beacon-uid="default">上传纪要</button></block>
+                    <block wx:if="{{state.isOriginator && state.detail.memberStatus == 1 && state.detail.status == 1}}"><button bindtap="dispatchEvent" data-tap-uid="e459_24" data-beacon-uid="default">结束</button></block>
+                    <block wx:if="{{state.isAuditor && state.detail.memberStatus == 1 && state.detail.status == 2}}"><button bindtap="dispatchEvent" data-tap-uid="e462_24" data-beacon-uid="default">签字</button></block>
+                </view>
+            </block>
+            <block wx:if="{{state.detail.type == 1}}">
+                <view class="bottom_btn_area">
+                    <block wx:if="{{state.isAuditor && state.detail.memberStatus == 0 && state.detail.status < 2}}"><button bindtap="dispatchEvent" data-tap-uid="e469_24" data-beacon-uid="default">上传纸质签到</button></block>
+                    <block wx:if="{{state.isAuditor && state.detail.memberStatus <= 1 && state.detail.status == 1}}"><button bindtap="dispatchEvent" data-tap-uid="e472_24" data-beacon-uid="default">上传纪要</button></block>
+                    <block wx:if="{{state.isOriginator && state.detail.memberStatus <= 1 && state.detail.status == 1}}"><button bindtap="dispatchEvent" data-tap-uid="e475_24" data-beacon-uid="default">结束</button></block>
+                    <block wx:if="{{state.isAuditor && state.detail.memberStatus <= 1 && state.detail.status == 2}}"><button bindtap="dispatchEvent" data-tap-uid="e478_24" data-beacon-uid="default">签字</button></block>
+                </view>
+            </block>
+        </view>
+    </view>

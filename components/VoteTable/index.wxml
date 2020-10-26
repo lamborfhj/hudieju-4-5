@@ -1,0 +1,17 @@
+
+    <view class="weui-cell">
+        <view class="table">
+            <view class="tr">
+                <view class="th">选项</view>
+                <view class="th noBorder"><text>投票户数</text></view>
+                <view class="th"><text>投票面积</text></view>
+            </view>
+            <block wx:for="{{state.dataSource}}" wx:for-item="item" wx:for-index="index">
+                <view class="tr">
+                    <view class="td">{{item.option}}</view>
+                    <view class="td noBorder">{{item.house}}户 ({{item.houseScale}}%)</view>
+                    <view class="td">{{item.area}}m² ({{item.areaScale}}%)</view>
+                </view>
+            </block>
+        </view>
+    </view>

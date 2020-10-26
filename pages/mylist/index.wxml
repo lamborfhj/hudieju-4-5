@@ -1,0 +1,183 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:0;">
+            <view class="weui-tab">
+                <view class="weui-navbar">
+                    <block wx:for="{{state.tabs}}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                        <block>
+                            <view id="{{index}}" class="{{state.activeIndex == index ? 'weui-navbar__item weui-bar__item_on' : 'weui-navbar__item'}}" bindtap="dispatchEvent" data-tap-uid="{{'e408_137_' + index}}" data-beacon-uid="default">
+                                <view class="weui-navbar__title">{{item}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-navbar__slider" style="{{'left: ' + state.sliderLeft + 'px; transform: translateX(' + state.sliderOffset + 'px); -webkit-transform: translateX(' + state.sliderOffset + 'px);'}}"></view>
+                </view>
+                <view class="weui-tab__panel">
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 0}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e417_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:if="{{props.query.action == '我的用章'}}">
+                                    <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-stamp data-instance-uid="{{'i419_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的表决'}}">
+                                    <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-vote data-instance-uid="{{'i420_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的会议'}}">
+                                    <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-meeting data-instance-uid="{{'i421_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的报销'}}">
+                                    <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-bill data-instance-uid="{{'i422_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的发函'}}">
+                                    <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-paper data-instance-uid="{{'i423_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公告'}}">
+                                    <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-notice data-instance-uid="{{'i424_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公示'}}">
+                                    <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-formula data-instance-uid="{{'i425_113_' + index}}" />
+                                    </block>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 1}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e430_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:if="{{props.query.action == '我的用章'}}">
+                                    <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-stamp data-instance-uid="{{'i432_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的表决'}}">
+                                    <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-vote data-instance-uid="{{'i433_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的会议'}}">
+                                    <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-meeting data-instance-uid="{{'i434_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的报销'}}">
+                                    <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-bill data-instance-uid="{{'i435_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的发函'}}">
+                                    <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-paper data-instance-uid="{{'i436_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公告'}}">
+                                    <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-notice data-instance-uid="{{'i437_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公示'}}">
+                                    <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-formula data-instance-uid="{{'i438_113_' + index}}" />
+                                    </block>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 2}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e443_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:if="{{props.query.action == '我的用章'}}">
+                                    <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-stamp data-instance-uid="{{'i445_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的表决'}}">
+                                    <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-vote data-instance-uid="{{'i446_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的会议'}}">
+                                    <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-meeting data-instance-uid="{{'i447_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的报销'}}">
+                                    <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-bill data-instance-uid="{{'i448_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的发函'}}">
+                                    <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-paper data-instance-uid="{{'i449_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公告'}}">
+                                    <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-notice data-instance-uid="{{'i450_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公示'}}">
+                                    <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-formula data-instance-uid="{{'i451_113_' + index}}" />
+                                    </block>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 3}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e456_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:if="{{props.query.action == '我的用章'}}">
+                                    <block wx:for="{{state.list4}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-stamp data-instance-uid="{{'i458_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的表决'}}">
+                                    <block wx:for="{{state.list4}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-vote data-instance-uid="{{'i459_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的会议'}}">
+                                    <block wx:for="{{state.list4}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-meeting data-instance-uid="{{'i460_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的报销'}}">
+                                    <block wx:for="{{state.list4}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-bill data-instance-uid="{{'i461_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的发函'}}">
+                                    <block wx:for="{{state.list4}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-paper data-instance-uid="{{'i462_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公告'}}">
+                                    <block wx:for="{{state.list4}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-notice data-instance-uid="{{'i463_113_' + index}}" />
+                                    </block>
+                                </block>
+                                <block wx:if="{{props.query.action == '我的公示'}}">
+                                    <block wx:for="{{state.list4}}" wx:for-item="item" wx:for-index="index">
+                                        <anu-formula data-instance-uid="{{'i464_113_' + index}}" />
+                                    </block>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>

@@ -1,0 +1,47 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <block wx:for="{{state.members}}" wx:for-item="group" wx:for-index="i2689" wx:key="groupName">
+                <block>
+                    <block wx:if="{{group.userEntityList.length > 0}}">
+                        <view>
+                            <view class="weui-cells__title">{{group.groupName}}</view>
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:for="{{group.userEntityList}}" wx:for-item="member" wx:for-index="i3011" wx:key="id">
+                                    <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e122_63_' + i2689 + '-' + i3011}}" data-beacon-uid="default">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                                            <image src="{{member.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{member.realname}}</view>
+                                            <view style="font-size: 13px;color: #888888;">
+                                                <view style="float: left;margin-right: 10px;"><text>{{member.roleName}}</text></view>
+                                                <view style="float: left;"><text>电话:</text><text style="color: #65a5ff;" catchtap="dispatchEvent" data-tap-uid="{{'e132_62_' + i2689 + '-' + i3011}}" data-beacon-uid="default">{{member.mobile}}</text></view>
+                                            </view>
+                                        </view>
+                                        <block wx:if="{{state.selectMode}}">
+                                            <view class="weui-cell__ft">
+                                                <block wx:if="{{member.checked}}">
+                                                    <icon class="weui-icon-checkbox_success" type="success" size="23" />
+                                                </block>
+                                                <block wx:elif="true">
+                                                    <icon class="weui-icon-checkbox_circle" type="circle" size="23" />
+                                                </block>
+                                            </view>
+                                        </block>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </block>
+            <block wx:if="{{state.selectMode}}">
+                <view class="bottom_btn_area">
+                    <block wx:if="{{!state.isSingle}}">
+                        <block><button bindtap="dispatchEvent" data-tap-uid="e156_26" data-beacon-uid="default">全选</button><button bindtap="dispatchEvent" data-tap-uid="e157_26" data-beacon-uid="default">取消全选</button></block>
+                    </block><button bindtap="dispatchEvent" data-tap-uid="e160_22" data-beacon-uid="default">确认选择</button>
+                </view>
+            </block>
+        </view>
+    </view>

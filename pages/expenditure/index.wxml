@@ -1,0 +1,159 @@
+<view class="page">
+	<view class="header-box">
+		<text>本小区公共收支的银行账户信息</text>
+		<view>
+			<view>
+				<text>户名：</text>
+				<text>{{name}}</text>
+			</view>
+			<view>
+				<text>开户行：</text>
+				<text>{{bankname}}</text>
+			</view>
+			<view>
+				<text>开户账号：</text>
+				<text>{{accounts}}</text>
+			</view>
+			<view><button class="btn-copy" bindtap="textPaste">点击复制</button></view>
+		</view>
+	</view>
+
+	<view>
+		<picker mode="date" value="{{date}}" fields="month" bindchange="bindDateChange">
+			<view class="picker">
+				<text class="picker_01">月度收支: {{date}} </text>
+				<image class="time_01" src="../../assets/images/time.png"></image>
+			</view>
+
+		</picker>
+		<view class="time">
+
+		</view>
+		<view class="box-card">
+			<!-- 收支报表信息 -->
+			<view class="card-top">
+				<view class="card-top-box">
+					<view>本月经营收入</view>
+					<view>{{list.operationsReceipts != null ?list.operationsReceipts:''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本月经营支出</view>
+					<view>{{list.operationsDisbursements != null ? list.operationsDisbursements:''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>上月经营结余</view>
+					<view>{{list.operationsBlanceL != null ? list.operationsBlanceL :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本月经营结余</view>
+					<view>{{list.operationsBlance != null ? list.operationsBlance:''}}</view>
+				</view>
+			</view>
+			<view class="card-top">
+				<view class="card-top-box">
+					<view>本月押金收入</view>
+					<view>{{list.depositReceipts != null ? list.depositReceipts : '' }}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本月押金支出</view>
+					<view>{{list.depositDisbursements != null ?list.depositDisbursements :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>上月押金结余</view>
+					<view>{{list.depositBlanceL != null ? list.depositBlanceL :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本月押金结余</view>
+					<view>{{list.depositBlance != null ? list.depositBlance : ''}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="report" bindtap="goreport">查看月度报表</view>
+	<view class="box">
+		<!-- 图标展示 -->
+		<view class="box-left">
+			<ec-canvas id="mychart-one" canvas-id="mychart-bar" ec="{{ ecOne }}"></ec-canvas>
+		</view>
+		<view class="box-right">
+			<ec-canvas id="mychart-two" canvas-id="mychart-bar" ec="{{ ecTwo }}"></ec-canvas>
+		</view>
+
+		<view class="box-left">
+			<ec-canvas id="mychart-three" canvas-id="mychart-bar" ec="{{ ecThree }}"></ec-canvas>
+		</view>
+		<view class="box-right">
+			<ec-canvas id="mychart-four" canvas-id="mychart-bar" ec="{{ ecFour }}"></ec-canvas>
+		</view>
+	</view>
+
+	<!-- 年度报表 -->
+	<view>
+		<picker mode="date" value="{{dateyear}}" fields="year" bindchange="bindDateYearChange">
+			<view class="picker">
+				<text class="picker_01">年度收支: {{dateyear}}</text>
+				<image class="time_01" src="../../assets/images/time.png"></image>
+			</view>
+		</picker>
+		<view class="box-card">
+			<!-- 收支报表信息 -->
+			<view class="card-top">
+				<view class="card-top-box">
+					<view>本年经营收入</view>
+					<view>{{listyear.operationsReceipts != null ? listyear.operationsReceipts :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本年经营支出</view>
+					<view>{{listyear.operationsDisbursements != null ? listyear.operationsDisbursements :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>上年经营结余</view>
+					<view>{{listyear.operationsBlanceL != null ? listyear.operationsBlanceL:''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本年经营结余</view>
+					<view>{{listyear.operationsBlance != null ? listyear.operationsBlance :''}}</view>
+				</view>
+			</view>
+			<view class="card-top">
+				<view class="card-top-box">
+					<view>本年押金收入</view>
+					<view>{{listyear.depositReceipts != null ? listyear.depositReceipts :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本年押金支出</view>
+					<view>{{listyear.depositDisbursements != null ? listyear.depositDisbursements :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>上年押金结余</view>
+					<view>{{listyear.depositBlanceL != null ?listyear.depositBlanceL :''}}</view>
+				</view>
+				<view class="card-top-box">
+					<view>本年押金结余</view>
+					<view>{{listyear.depositBlance != null ?listyear.depositBlance:''}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 年度报表图表展示 -->
+	<view class="report" bindtap="goreportyear">查看年度报表</view>
+	<view class="box">
+		<!-- 图标展示 -->
+		<view class="box-left">
+			<ec-canvas id="mychart-dom-one" canvas-id="mychart-bar" ec="{{ ecOneYear }}"></ec-canvas>
+		</view>
+		<view class="box-right">
+			<ec-canvas id="mychart-dom-two" canvas-id="mychart-bar" ec="{{ ecTwoYear }}"></ec-canvas>
+		</view>
+
+		<view class="box-left">
+			<ec-canvas id="mychart-dom-three" canvas-id="mychart-bar" ec="{{ ecThreeYear }}"></ec-canvas>
+		</view>
+		<view class="box-right">
+			<ec-canvas id="mychart-dom-four" canvas-id="mychart-bar" ec="{{ ecFourYear }}"></ec-canvas>
+		</view>
+	</view>
+
+</view>

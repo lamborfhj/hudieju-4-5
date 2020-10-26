@@ -1,0 +1,13 @@
+.weui-cells_without_border::before,
+.weui-cells_without_border::after {
+  content: none !important;
+}
+.weui-panel__hd {
+  color: unset;
+}
+.weui-cell {
+  font-size: 13px;
+}
+.weui-cell__hd {
+  color: #999999;
+}

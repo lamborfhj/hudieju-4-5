@@ -1,0 +1,77 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-panel">
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__hd" style="margin-right: 10px;">
+                                <image src="{{state.detail.avatarUrl}}" class="avatar" />
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view>{{state.detail.title}}</view>
+                                <view style="font-size: 13px;color: #c8894e;">{{state.detail.statusCn}}</view>
+                            </view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">发函日期：</text><text>{{state.detail.createTime}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">函件内容：</text><text>{{state.detail.content}}</text></view>
+                        </view>
+                        <block wx:if="{{state.files.length}}">
+                            <view class="weui-cell">
+                                <view class="weui-cell__bd">
+                                    <block wx:for="{{state.files}}" wx:for-item="file" wx:for-index="i4974">
+                                        <view style="font-size:14px;color:blue;" bindtap="dispatchEvent" data-tap-uid="{{'e153_26_' + i4974}}" data-beacon-uid="default">{{file.name}}</view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{state.imgs.length}}">
+                            <view class="weui-cell">
+                                <view class="weui-cell__bd">
+                                    <block wx:for="{{state.imgs}}" wx:for-item="file" wx:for-index="i5524" wx:key="url">
+                                        <view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="{{'e167_26_' + i5524}}" data-beacon-uid="default">
+                                            <image src="{{file.url}}" class="img_small" />
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">收件人</view>
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <block wx:if="{{state.detail.paperMemberEntityList}}">
+                            <block wx:for="{{state.detail.paperMemberEntityList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                <block>
+                                    <view class="weui-cell weui-cell_without_border">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;" bindtap="dispatchEvent" data-tap-uid="{{'e187_80_' + index}}" data-beacon-uid="default">
+                                            <image src="{{item.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.realname}}</view>
+                                            <view style="font-size: 13px;color: #888888;">
+                                                <block wx:if="{{item.signTime}}">{{"签收时间:" + item.signTime}}</block>
+                                            </view>
+                                            <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                        </view>
+                                    </view>
+                                    <block wx:if="{{state.detail.paperMemberEntityList && state.detail.paperMemberEntityList.length > index + 1}}">
+                                        <view style="background-color:black;width:1px;height:30px;margin-left:40px;"></view>
+                                    </block>
+                                </block>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <block wx:if="{{state.isAuditor && state.detail.memberStatus == 0}}">
+                <view class="bottom_btn_area"><button bindtap="dispatchEvent" data-tap-uid="e208_22" data-beacon-uid="default">签收</button></view>
+            </block>
+        </view>
+    </view>

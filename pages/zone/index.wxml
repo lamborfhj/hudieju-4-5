@@ -1,0 +1,20 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-cells weui-cells_after-title">
+                <block wx:for="{{state.zones}}" wx:for-item="zone" wx:for-index="i1416" wx:key="id">
+                    <view class="weui-cell">
+                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                            <image src="https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/logo.png" class="avatar" />
+                        </view>
+                        <view class="weui-cell__bd">
+                            <view>{{zone.name}}</view>
+                            <view style="font-size: 13px;">{{zone.address}}</view>
+                            <view style="font-size: 13px;color: #65a5ff;" catchtap="dispatchEvent" data-tap-uid="{{'e68_64_' + i1416}}" data-beacon-uid="default">{{zone.tel}}</view>
+                        </view>
+                        <view class="weui-cell__ft"><button class="weui-btn mini-btn" type="{{zone.id == state.currentZoneId ? 'primary' : 'warn'}}" size="mini" disabled="{{zone.id == state.currentZoneId}}" bindtap="dispatchEvent" data-tap-uid="{{'e76_20_' + i1416}}" data-beacon-uid="default">切换</button></view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>

@@ -1,0 +1,88 @@
+{
+  "window": {
+    "navigationBarTitleText": "业委汇",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light"
+  },
+  "usingComponents": {
+    "ec-canvas": "./ec-canvas/ec-canvas"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "iconPath": "assets/images/home01.png",
+        "selectedIconPath": "assets/images/home02.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "assets/images/mine01.png",
+        "selectedIconPath": "assets/images/mine02.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "pages": [
+    "pages/index",
+    "pages/vote/index",
+    "pages/submitvote/index",
+    "pages/myvote/index",
+    "pages/votedetail/index",
+    "pages/stamp/index",
+    "pages/submitstamp/index",
+    "pages/mystamp/index",
+    "pages/stampdetail/index",
+    "pages/mybill/index",
+    "pages/submitbill/index",
+    "pages/billdetail/index",
+    "pages/meeting/index",
+    "pages/submitmeeting/index",
+    "pages/meetingdetail/index",
+    "pages/meetingParticipant/index",
+    "pages/submitmeetingtext/index",
+    "pages/mypaper/index",
+    "pages/submitpaper/index",
+    "pages/paperdetail/index",
+    "pages/mynotice/index",
+    "pages/submitnotice/index",
+    "pages/noticedetail/index",
+    "pages/noticereader/index",
+    "pages/formula/index",
+    "pages/submitformula/index",
+    "pages/formuladetail/index",
+    "pages/submitformulafinish/index",
+    "pages/history/index",
+    "pages/historylist/index",
+    "pages/historyVoteDetail/index",
+    "pages/zone/index",
+    "pages/org/index",
+    "pages/member/index",
+    "pages/my/index",
+    "pages/userinfo/index",
+    "pages/password/index",
+    "pages/mylist/index",
+    "pages/login/index",
+    "pages/agreement/index",
+    "pages/bindphone/index",
+    "pages/bind/index",
+    "pages/waiting/index",
+    "pages/forbidden/index",
+    "pages/signature/index",
+    "pages/message/index",
+    "pages/history2/index",
+    "pages/historylist2/index",
+    "pages/expenditure/index",
+    "pages/report/index",
+    "pages/years/index",
+    "pages/details/index",
+    "pages/detailsimg/index",
+    "pages/added/index",
+    "pages/version/index",
+    "pages/versionDetail/index"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

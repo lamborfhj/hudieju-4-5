@@ -1,0 +1,8 @@
+
+    <view class="weui-cell" key="{{props.data.id}}" bindtap="dispatchEvent" data-tap-uid="e17_55" data-beacon-uid="default">
+        <view class="weui-cell__bd">
+            <view>{{props.data.title}}</view>
+            <view style="font-size: 13px;color: #888888;"><text>{{props.data.createTime}}</text>
+                <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/eye.png' style="width: 14px;height: 10px;margin: 0 3px 0 15px;" /><text>{{props.data.readCount || 0}}</text></view>
+        </view>
+    </view>

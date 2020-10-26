@@ -1,0 +1,15 @@
+
+    <view class="page">
+        <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="e101_32" data-beacon-uid="default">
+            <view class="weui-cell__bd">当前版本 3.1.0<text style="color:#a8a8a8;font-size: 12px;margin-left:10px;">更新时间：2020-10-20</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+        <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="e107_32" data-beacon-uid="default">
+            <view class="weui-cell__bd">历史版本 2.0<text style="color:#a8a8a8;font-size: 12px;margin-left:10px;">更新时间：2020-9-19</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+        <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="e113_32" data-beacon-uid="default">
+            <view class="weui-cell__bd">历史版本 1.0<text style="color:#a8a8a8;font-size: 12px;margin-left:10px;">更新时间：2019-11-7</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </view>

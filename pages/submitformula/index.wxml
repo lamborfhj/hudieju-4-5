@@ -1,0 +1,45 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e190_16" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>公示人</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="manager" class="weui-input" placeholder="请输入公示人" /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>经办人</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="realname" class="weui-input" placeholder="请输入经办人" value="{{state.manager}}" disabled /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>公示主题</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="title" class="weui-input" placeholder="请输入公示主题" /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>开始日期</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker name="startTime" mode="date" start="2015-01-01" end="2030-09-01" bindchange="dispatchEvent" data-change-uid="e221_91" data-beacon-uid="default">
+                                <view class="weui-input">{{state.startDate}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>截止日期</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker name="endTime" mode="date" start="2015-01-01" end="2030-09-01" bindchange="dispatchEvent" data-change-uid="e231_89" data-beacon-uid="default">
+                                <view class="weui-input">{{state.endDate}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd"><textarea name="content" class="weui-textarea" placeholder="请输入更多详情" style="height: 3.3em" /></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.imgs}}" wx:for-item="img" wx:for-index="i7695" wx:key="path"><view class="weui-uploader__file" bindtap="dispatchEvent" bindlongpress="dispatchEvent" data-tap-uid="{{'e246_22_' + i7695}}" data-beacon-uid="default" data-longpress-uid="{{'e247_22_' + i7695}}"><image src="{{img.path}}" class="img_small" /></view></block><block wx:if="{{state.maxImageNum - state.imgs.length > 0}}"><view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="e253_54" data-beacon-uid="default"><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/avatar.png' class="img_small" /></view></block><view style="float:left;line-height:40px;font-size:14px;color:gray;">请上传纸质公示的带水印图片永久保存</view></view></view><view class="weui-cell"><view class="weui-cell__hd"><text class="icon_star">*</text><text>收件人</text></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.addressees}}" wx:for-item="member" wx:for-index="i8933" wx:key="id"><view class="weui-uploader__file" style='text-align:center;width:60px;'><view><image src="{{member.avatarUrl}}" class="avatar_small" /></view><view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.realname}}</text></view></view></block><view class="weui-uploader__file" bindtap="dispatchEvent" style='text-align:center;width:60px;' data-tap-uid="e274_52" data-beacon-uid="default"><view><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/add.png' class="avatar_small" /></view></view></view></view><view class="bottom_btn_area"><button formType="submit" disabled="{{state.disabled}}">提交</button></view></view></form></view></view>

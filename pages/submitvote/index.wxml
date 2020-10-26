@@ -1,0 +1,75 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e213_16" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>表决主题</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="title" class="weui-input" placeholder="请输入表决主题" /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label"><text class="icon_star">*</text>表决方式</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker range="{{state.voteTypes}}" range-key='value' bindchange="dispatchEvent" data-change-uid="e230_73" data-beacon-uid="default">
+                                <view class="weui-select">{{state.voteTypeName}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label"><text class="icon_star">*</text>表决类别</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker range="{{state.selectTypes}}" bindchange="dispatchEvent" data-change-uid="e240_57" data-beacon-uid="default">
+                                <view class="weui-select">{{state.selectTypes[state.selectTypeId]}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <block wx:if="{{state.selectTypeId == 1}}">
+                        <block>
+                            <view class="weui-cell weui-cell_select">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label"><text class="icon_star">*</text>选项1</view>
+                                </view>
+                                <view class="weui-cell__bd"><input name="item1" class="weui-input" placeholder="请输入选项1" /></view>
+                            </view>
+                            <view class="weui-cell weui-cell_select">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label"><text class="icon_star">*</text>选项2</view>
+                                </view>
+                                <view class="weui-cell__bd"><input name="item2" class="weui-input" placeholder="请输入选项2" /></view>
+                            </view>
+                            <view class="weui-cell weui-cell_select">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label">选项3</view>
+                                </view>
+                                <view class="weui-cell__bd"><input name="item3" class="weui-input" placeholder="请输入选项3" /></view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>截止日期</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker name="endTime" mode="date" start="2015-01-01" end="2030-09-01" bindchange="dispatchEvent" data-change-uid="e278_89" data-beacon-uid="default">
+                                <view class="weui-input">{{state.date}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label"><text class="icon_star">*</text>审批方式</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker range="{{state.voteApprovalTypes}}" bindchange="dispatchEvent" data-change-uid="e288_63" data-beacon-uid="default">
+                                <view class="weui-select">{{state.voteApprovalTypes[state.voteApprovalTypeId]}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd"><textarea name="content" class="weui-textarea" placeholder="请输入表决内容" /></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.imgs}}" wx:for-item="url" wx:for-index="i10279" wx:key="*this"><view class="weui-uploader__file" bindtap="dispatchEvent" bindlongpress="dispatchEvent" data-tap-uid="{{'e303_22_' + i10279}}" data-beacon-uid="default" data-longpress-uid="{{'e304_22_' + i10279}}"><image src="{{url}}" class="img_small" /></view></block><block wx:if="{{state.maxImageNum - state.imgs.length > 0}}"><view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="e310_54" data-beacon-uid="default"><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/avatar.png' class="img_small" /></view></block></view></view><view class="weui-cell"><view class="weui-cell__hd"><text class="icon_star">*</text><text>表决人</text></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.voters}}" wx:for-item="member" wx:for-index="i11385" wx:key="id"><view class="weui-uploader__file" style='text-align:center;width:60px;'><view><image src="{{member.avatarUrl}}" class="avatar_small" /></view><view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.realname}}</text></view></view></block><block wx:if="{{state.voteApprovalTypeId > 0 && state.voters}}"><view class="weui-uploader__file" bindtap="dispatchEvent" style='text-align:center;width:60px;' data-tap-uid="e331_54" data-beacon-uid="default"><view><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/add.png' class="avatar_small" /></view></view></block></view></view><view class="weui-cell"><view class="weui-cell__hd"><text>抄送人[表决后会通知抄送人]</text></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.copies}}" wx:for-item="member" wx:for-index="i12569" wx:key="id"><view class="weui-uploader__file" style='text-align:center;width:60px;'><view><image src="{{member.avatarUrl}}" class="avatar_small" /></view><view><text style='font-size:14px;'>{{member.realname}}</text></view></view></block><view class="weui-uploader__file" bindtap="dispatchEvent" style='text-align:center;width:60px;' data-tap-uid="e350_52" data-beacon-uid="default"><view><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/add.png' class="avatar_small" /></view></view></view></view><view class="bottom_btn_area"><button formType="submit" disabled="{{state.disabled}}">提交</button></view></view></form></view></view>

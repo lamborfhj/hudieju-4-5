@@ -1,0 +1,28 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-cells weui-cells_after-title">
+                <block wx:for="{{state.participants}}" wx:for-item="participant" wx:for-index="i1470" wx:key="id">
+                    <view class="weui-cell">
+                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                            <image src="{{participant.avatarUrl}}" class="avatar" />
+                        </view>
+                        <view class="weui-cell__bd">
+                            <view>{{participant.memberRealname}}</view>
+                            <block wx:if="{{state.status == 'attended' || state.status == 'unattended'}}">
+                                <view style="font-size: 13px;color: #888888;">
+                                    <block wx:if="{{participant.signTime}}">{{"签到时间:" + participant.signTime}}</block>
+                                </view>
+                            </block>
+                            <block wx:if="{{state.status == 'signed'}}">
+                                <view style="font-size: 13px;color: #888888;">
+                                    <block wx:if="{{participant.signNameTime}}">{{"签字时间:" + participant.signNameTime}}</block>
+                                    <block wx:elif="true">{{'超时签名通过'}}</block>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>

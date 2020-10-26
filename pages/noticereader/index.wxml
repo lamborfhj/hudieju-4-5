@@ -1,0 +1,20 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-cells weui-cells_after-title">
+                <block wx:for="{{state.readers}}" wx:for-item="reader" wx:for-index="i966" wx:key="id">
+                    <view class="weui-cell">
+                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                            <image src="{{reader.avatarUrl}}" class="avatar" />
+                        </view>
+                        <view class="weui-cell__bd">
+                            <view>{{reader.realname}}</view>
+                            <view style="font-size: 13px;color: #888888;">
+                                <block wx:if="{{reader.readTime}}">{{"阅读时间:" + reader.readTime}}</block>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>

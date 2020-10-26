@@ -1,0 +1,65 @@
+
+    <view class="page">
+        <view class="page__bd">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e132_16" data-beacon-uid="default">
+                <view class="weui-panel">
+                    <view class="weui-panel__hd">基本信息设置</view>
+                    <view class="weui-panel__bd">
+                        <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                            <view class="weui-cell weui-cell_input">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label"><text class="icon_star">*</text>真实姓名</view>
+                                </view>
+                                <view class="weui-cell__bd"><input name="realname" class="weui-input" /></view>
+                            </view>
+                            <view class="weui-cell weui-cell_input">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label"><text class="icon_star">*</text>邀请码</view>
+                                </view>
+                                <view class="weui-cell__bd"><input name="inviteCode" class="weui-input" /></view>
+                            </view>
+                            <view class="weui-cell weui-cell_select">
+                                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                                    <view class="weui-label"><text class="icon_star">*</text>角色</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker range="{{state.roles}}" range-key='roleName' bindchange="dispatchEvent" data-change-uid="e158_76" data-beacon-uid="default">
+                                        <view class="weui-select">{{state.roleName}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <block wx:if="{{state.group == '业主委员会' || state.group == '小区业主'}}">
+                                <view class="weui-cell weui-cell_input">
+                                    <view class="weui-cell__hd">
+                                        <view class="weui-label"><text class="icon_star">*</text>房号</view>
+                                    </view>
+                                    <view class="weui-cell__bd"><input name="roomNum" class="weui-input" /></view>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-panel">
+                    <view class="weui-panel__hd">密码设置</view>
+                    <view class="weui-panel__bd">
+                        <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                            <view class="weui-cell weui-cell_input">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label"><text class="icon_star">*</text>密码</view>
+                                </view>
+                                <view class="weui-cell__bd"><input type="password" name="password" class="weui-input" /></view>
+                            </view>
+                            <view class="weui-cell weui-cell_input">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label"><text class="icon_star">*</text>确认密码</view>
+                                </view>
+                                <view class="weui-cell__bd"><input type="password" name="password2" class="weui-input" /></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-panel" />
+                <view class="bottom_btn_area"><button formType="submit">提交</button></view>
+            </form>
+        </view>
+    </view>

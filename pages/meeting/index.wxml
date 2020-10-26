@@ -1,0 +1,56 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:0;">
+            <view class="weui-tab">
+                <view class="weui-navbar">
+                    <block wx:for="{{state.tabs}}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                        <block>
+                            <view id="{{index}}" class="{{state.activeIndex == index ? 'weui-navbar__item weui-bar__item_on' : 'weui-navbar__item'}}" bindtap="dispatchEvent" data-tap-uid="{{'e157_137_' + index}}" data-beacon-uid="default">
+                                <view class="weui-navbar__title">{{item}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-navbar__slider" style="{{'left: ' + state.sliderLeft + 'px; transform: translateX(' + state.sliderOffset + 'px); -webkit-transform: translateX(' + state.sliderOffset + 'px);'}}"></view>
+                </view>
+                <view class="weui-tab__panel">
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 0}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e166_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                    <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e170_62_' + index}}" data-beacon-uid="default">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                                            <image src="{{item.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.title}}</view>
+                                            <view style="font-size: 13px;color: #888888;">{{"会议日期: " + item.startAt}}</view>
+                                            <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 1}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e186_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                    <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e190_62_' + index}}" data-beacon-uid="default">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                                            <image src="{{item.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.title}}</view>
+                                            <view style="font-size: 13px;color: #888888;">{{"会议日期: " + item.startAt}}</view>
+                                            <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom_btn_area"><button bindtap="dispatchEvent" data-tap-uid="e228_20" data-beacon-uid="default">创建会议</button></view>
+        </view>
+    </view>

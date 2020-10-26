@@ -1,0 +1,6 @@
+
+    <view class="page">
+        <view class="page__bd"><canvas canvas-id="signPlate" style="{{'background-color:#ffffff;height:' + state.height + 'px;width:' + state.width + 'px;'}}" disable-scroll="{{true}}" bindtouchstart="dispatchEvent" bindtouchmove="dispatchEvent" data-touchstart-uid="e135_12" data-beacon-uid="default" data-touchmove-uid="e136_12" />
+            <view class="bottom_btn_area"><button bindtap="dispatchEvent" data-tap-uid="e140_20" data-beacon-uid="default">重写</button><button disabled="{{state.disabled}}" bindtap="dispatchEvent" data-tap-uid="e141_51" data-beacon-uid="default">确定</button></view>
+        </view>
+    </view>

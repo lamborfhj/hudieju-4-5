@@ -1,0 +1,83 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e150_16" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell">
+                        <view class="weui-cell__hd"><text class="icon_star">*</text><text>参会人员</text></view>
+                    </view>
+                    <view class="weui-cell weui-cell_without_border">
+                        <view class="weui-cell__bd">
+                            <block wx:for="{{state.participants}}" wx:for-item="member" wx:for-index="i4660" wx:key="id">
+                                <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                    <view>
+                                        <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                    </view>
+                                    <view><text style='font-size:14px;'>{{member.realname}}</text></view>
+                                </view>
+                            </block>
+                            <view class="weui-uploader__file" bindtap="dispatchEvent" style='text-align:center;width:60px;' data-tap-uid="e166_52" data-beacon-uid="default">
+                                <view>
+                                    <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/add.png' class="avatar_small" />
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>会议主题</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="title" class="weui-input" placeholder="请输入会议主题" /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label"><text class="icon_star">*</text>会议类型</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker name="type" range="{{state.type}}" value="{{state.typeIndex}}" bindchange="dispatchEvent" data-change-uid="e184_91" data-beacon-uid="default">
+                                <view class="weui-select">{{state.type[state.typeIndex]}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <block wx:if="{{state.typeIndex == 0}}">
+                        <block>
+                            <view class="weui-cell weui-cell_input">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label"><text class="icon_star">*</text>开始日期</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker mode="date" start="2015-01-01" end="2030-09-01" bindchange="dispatchEvent" data-change-uid="e196_78" data-beacon-uid="default">
+                                        <view class="weui-input">{{state.date}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="weui-cell weui-cell_input">
+                                <view class="weui-cell__hd">
+                                    <view class="weui-label"><text class="icon_star">*</text>开始时间</view>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <picker mode="time" start="08:01" end="23:01" bindchange="dispatchEvent" data-change-uid="e206_68" data-beacon-uid="default">
+                                        <view class="weui-input">{{state.time}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>会议地点</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="location" class="weui-input" placeholder="请输入会议地点" /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label"><text class="icon_star">*</text>预估时长</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker range="{{state.durations}}" bindchange="dispatchEvent" data-change-uid="e226_55" data-beacon-uid="default">
+                                <view class="weui-select">{{state.durations[state.durationIndex]}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd"><textarea name="content" class="weui-textarea" placeholder="请输入更多详情" style="height: 3.3em" /></view></view><view class="weui-cell"><view class="weui-cell__hd"><text>抄送人</text></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.copies}}" wx:for-item="member" wx:for-index="i9073" wx:key="id"><view class="weui-uploader__file" style='text-align:center;width:60px;'><view><image src="{{member.avatarUrl}}" class="avatar_small" /></view><view><text style='font-size:14px;'>{{member.realname}}</text></view></view></block><view class="weui-uploader__file" bindtap="dispatchEvent" style='text-align:center;width:60px;' data-tap-uid="e249_52" data-beacon-uid="default"><view><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/add.png' class="avatar_small" /></view></view></view></view><view class="bottom_btn_area"><button formType="submit" disabled="{{state.disabled}}">提交</button></view></view></form></view></view>

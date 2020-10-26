@@ -1,0 +1,8 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "网上发函",
+    "navigationBarBackgroundColor": "#292929",
+    "backgroundColor": "#F5f5f5",
+    "enablePullDownRefresh": true
+}

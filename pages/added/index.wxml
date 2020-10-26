@@ -1,0 +1,151 @@
+
+    <view class="page">
+        <view class="content-top">
+            <picker bindchange="dispatchEvent" value="{{state.sAreaIndex}}" range="{{state.areaList}}" range-key="name" data-change-uid="e464_18" data-beacon-uid="default">
+                <view class="top-inline"><input type="text" disabled value="{{state.sArea}}" /></view>
+            </picker>
+            <picker bindchange="dispatchEvent" value="{{state.timeAreaIndex}}" range="{{state.timeList}}" range-key="name" data-change-uid="e469_18" data-beacon-uid="default">
+                <view class="top-inline"><input type="text" disabled value="{{state.timeArea}}" placeholder="请选择时间段" /></view>
+            </picker><button type="primary" size="mini" bindtap="dispatchEvent" data-tap-uid="e475_45" data-beacon-uid="default">查看</button>
+        </view>
+        <view class="page__bd" style="padding-bottom:0;">
+            <view class="weui-tab">
+                <view class="weui-left-title">操作性任务</view>
+                <view class="weui-navbar">
+                    <block wx:for="{{state.tabs}}" wx:for-item="item" wx:for-index="index" wx:key="value">
+                        <block>
+                            <view id="{{index}}" class="{{state.activeIndex == index ? 'weui-navbar__item weui-bar__item_on' : 'weui-navbar__item'}}" bindtap="dispatchEvent" data-tap-uid="{{'e483_137_' + index}}" data-beacon-uid="default">
+                                <view class="weui-navbar__title">{{item.name}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-navbar__slider" style="{{'left: ' + state.sliderLeft + 'px; transform: translateX(' + state.sliderOffset + 'px); -webkit-transform: translateX(' + state.sliderOffset + 'px);'}}"></view>
+                </view>
+            </view>
+            <view class="weui-content">
+                <view class="left-bar border">
+                    <view class="line">
+                        <view class="black">{{state.tabs[state.activeIndex].name}}:</view>
+                        <view class="num">
+                            <block wx:if="{{state.lv}}">
+                                <block wx:if="{{state.dataList.num}}">{{state.dataList.num + '%'}}</block>
+                                <block wx:if="{{state.dataList.proportion}}">{{state.dataList.proportion + '%'}}</block>
+                                <block wx:elif="true">{{'0%'}}</block>
+                            </block>
+                            <block wx:elif="true">{{state.dataList.num || 0}}</block>
+                        </view>
+                    </view>
+                    <view class="line">
+                        <view class="black">您的排名 ：</view>
+                        <view class="num">{{state.dataList.ranking}}</view>
+                    </view>
+                </view>
+                <view class="right-bar border">
+                    <view class="item-ul">
+                        <block wx:for="{{state.dataList.listData}}" wx:for-item="it" wx:for-index="index" wx:key="*this">
+                            <view class="item-li">
+                                <view class="item-left">
+                                    <image class="item-img avatar" style="{{index > 2 ? 'display:none' : ''}}" src="{{index == 0 ? '../../assets/images/one.png' : index == 1 ? '../../assets/images/two.png' : index == 2 ? '../../assets/images/three.png' : ''}}" alt="" /><text style="{{index > 2 ? 'width:48px;text-align:center;display:inline-block' : 'display:none'}}">{{index > 2 ? index + 1 : ''}}</text>
+                                    <image src="{{it.avatarUrl}}" class="avatar items" />
+                                </view>
+                                <view class="item-name" style="{{'font-size:12px'}}">{{it.realname}}</view>
+                                <view class="item-grey" style="{{'font-size:12px;max-width:90px;white-space:normal;'}}">{{state.tabs[state.activeIndex].name}}：<block wx:if="{{state.lv}}">
+                                        <block wx:if="{{it.proportion}}">{{it.proportion + '%'}}</block>
+                                        <block wx:elif="true">{{'0%'}}</block>
+                                    </block>
+                                    <block wx:elif="true">{{it.num || 0}}</block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="page__bd" style="padding-bottom:0;">
+            <view class="weui-tab">
+                <view class="weui-left-title">浏览性任务</view>
+                <view class="weui-navbar">
+                    <block wx:for="{{state.tabs1}}" wx:for-item="item" wx:for-index="index" wx:key="value">
+                        <block>
+                            <view id="{{index}}" class="{{state.activeIndex1 == index ? 'weui-navbar__item weui-bar__item_on' : 'weui-navbar__item'}}" bindtap="dispatchEvent" data-tap-uid="{{'e530_138_' + index}}" data-beacon-uid="default">
+                                <view class="weui-navbar__title">{{item.name}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-navbar__slider" style="{{'left: ' + state.sliderLeft1 + 'px; transform: translateX(' + state.sliderOffset1 + 'px); -webkit-transform: translateX(' + state.sliderOffset1 + 'px);'}}"></view>
+                </view>
+            </view>
+            <view class="weui-content">
+                <view class="left-bar border">
+                    <view class="line">
+                        <view class="black">{{state.tabs1[state.activeIndex1].name}}:</view>
+                        <view class="num">{{state.dataList1.num}}</view>
+                    </view>
+                    <view class="line">
+                        <view class="black">您的排名 ：</view>
+                        <view class="num">{{state.dataList1.ranking}}</view>
+                    </view>
+                </view>
+                <view class="right-bar border">
+                    <view class="item-ul">
+                        <block wx:for="{{state.dataList1.listData}}" wx:for-item="it" wx:for-index="index" wx:key="*this">
+                            <view class="item-li">
+                                <view class="item-left">
+                                    <image class="item-img avatar" style="{{index > 2 ? 'display:none' : ''}}" src="{{index == 0 ? '../../assets/images/one.png' : index == 1 ? '../../assets/images/two.png' : index == 2 ? '../../assets/images/three.png' : ''}}" alt="" /><text style="{{index > 2 ? 'width:48px;text-align:center;display:inline-block' : 'display:none'}}">{{index > 2 ? index + 1 : ''}}</text>
+                                    <image src="{{it.avatarUrl}}" class="avatar items" />
+                                </view>
+                                <view class="item-name" style="{{'font-size:12px'}}">{{it.realname}}</view>
+                                <view class="item-grey" style="{{'font-size:12px;max-width:90px;white-space:normal;'}}">{{state.tabs1[state.activeIndex1].name}}：{{it.num}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="page__bd" style="padding-bottom:0;">
+            <view class="weui-tab">
+                <view class="weui-left-title">通用</view>
+                <view class="weui-navbar">
+                    <block wx:for="{{state.tabs2}}" wx:for-item="item" wx:for-index="index" wx:key="value">
+                        <block>
+                            <view id="{{index}}" class="{{state.activeIndex2 == index ? 'weui-navbar__item weui-bar__item_on' : 'weui-navbar__item'}}" bindtap="dispatchEvent" data-tap-uid="{{'e577_138_' + index}}" data-beacon-uid="default">
+                                <view class="weui-navbar__title">{{item.name}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-navbar__slider" style="{{'left: ' + state.sliderLeft2 + 'px; transform: translateX(' + state.sliderOffset2 + 'px); -webkit-transform: translateX(' + state.sliderOffset2 + 'px);'}}"></view>
+                </view>
+            </view>
+            <view class="weui-content">
+                <view class="left-bar border">
+                    <view class="line">
+                        <view class="black">{{state.tabs2[state.activeIndex2].name}}:</view>
+                        <view class="num">
+                            <block wx:if="{{state.lv2}}">{{state.dataList2.num||0}}min</block>
+                            <block wx:elif="true">{{state.dataList2.num||0}}</block>
+                        </view>
+                    </view>
+                    <view class="line">
+                        <view class="black">您的排名 ：</view>
+                        <view class="num">{{state.dataList2.ranking}}</view>
+                    </view>
+                </view>
+                <view class="right-bar border">
+                    <view class="item-ul">
+                        <block wx:for="{{state.dataList2.listData}}" wx:for-item="it" wx:for-index="index" wx:key="*this">
+                            <view class="item-li">
+                                <view class="item-left">
+                                    <image class="item-img avatar" style="{{index > 2 ? 'display:none' : ''}}" src="{{index == 0 ? '../../assets/images/one.png' : index == 1 ? '../../assets/images/two.png' : index == 2 ? '../../assets/images/three.png' : ''}}" alt="" /><text style="{{index > 2 ? 'width:48px;text-align:center;display:inline-block' : 'display:none'}}">{{index > 2 ? index + 1 : ''}}</text>
+                                    <image src="{{it.avatarUrl}}" class="avatar items" />
+                                </view>
+                                <view class="item-name" style="{{'font-size:12px'}}">{{it.realname}}</view>
+                                <view class="item-grey" style="{{'font-size:12px;max-width:90px;white-space:normal;'}}">{{state.tabs2[state.activeIndex2].name}}：<block wx:if="{{state.lv2}}">{{it.num||0}}min</block>
+                                    <block wx:elif="true">{{it.num||0}}</block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>

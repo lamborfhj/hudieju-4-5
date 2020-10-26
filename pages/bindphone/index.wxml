@@ -1,0 +1,31 @@
+
+    <view class="page">
+        <view class="page__bd">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e131_16" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>手机号</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="phone" class="weui-input" value="{{state.phone}}" bindinput="dispatchEvent" data-input-uid="e138_82" data-beacon-uid="default" /></view>
+                        <view class="weui-cell__ft">
+                            <block wx:if="{{state.second == 0}}">
+                                <view class="weui-vcode-btn" bindtap="dispatchEvent" data-tap-uid="e142_49" data-beacon-uid="default">获取验证码</view>
+                            </block>
+                            <block wx:elif="true">
+                                <view class="weui-vcode-btn" style="color:#666666">{{state.second}}秒</view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>验证码</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="verifyCode" class="weui-input" /></view>
+                    </view>
+                    <view class="weui-cell" />
+                    <view class="bottom_btn_area"><button formType="submit">提交</button></view>
+                </view>
+            </form>
+        </view>
+    </view>

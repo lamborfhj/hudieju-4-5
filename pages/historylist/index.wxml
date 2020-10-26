@@ -1,0 +1,116 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:0;">
+            <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e272_39" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <block wx:if="{{props.query.action == '历史用章'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e276_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.uname}}的用章申请</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"使用日期: " + item.useDate}}</view>
+                                    <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{props.query.action == '历史表决'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e290_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"截止日期: " + item.endTime}}</view>
+                                    <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{props.query.action == '历史会议'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e304_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"会议日期: " + item.startAt}}</view>
+                                    <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{props.query.action == '历史报销'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e318_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.name}}</view>
+                                    <view>¥{{item.money}}</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"发生日期: " + item.happenDate}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{props.query.action == '历史发函'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e332_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"发函日期: " + item.createTime}}</view>
+                                    <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{props.query.action == '历史公告'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e346_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <view style="font-size: 13px;color: #888888;"><text>{{item.createTime}}</text>
+                                        <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/eye.png' style="width: 14px;height: 10px;margin: 0 3px 0 15px;" /><text>{{item.readCount || 0}}</text></view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{props.query.action == '历史公示'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e360_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"截止日期: " + item.endTime}}</view>
+                                    <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{props.query.action == '业主大会'}}">
+                        <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e374_56_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <block wx:if="{{item.voteEndTime}}">
+                                        <view style="font-size: 13px;color: #888888;">{{"结束时间: " + item.voteEndTime}}</view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+    </view>

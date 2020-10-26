@@ -1,0 +1,396 @@
+<view class="page">
+	<view class="share">
+		<view>
+			<picker mode="date" value="{{date}}" fields="month" bindchange="bindDateChange">
+				<view class="picker">
+					<text>	月度收支: {{date}}</text>
+					<image class="time_01" src="../../assets/images/time.png"></image>
+				</view>
+			</picker>
+		</view>   
+	</view>
+	<view class="title">{{title}}</view>
+
+	<!-- 表单 -->
+	<view class="container">
+		<view class="table">
+			<view class="tr">
+				<view class="td_01">序号</view>
+				<view class="td_02">一级科目</view>
+				<view class="td_03">二级科目</view>
+				<view class="td_04">金额</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">1</view>
+				<view class="td_02">经营用房租金</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.receiptsDetail[0].id}}" bindtap="clickdetails">物业经营用房租金</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[1].id}}" bindtap="clickdetails">物业管理用房租金</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[2].id}}" bindtap="clickdetails">仓储空间租金</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.receiptsDetail[0].id}}" bindtap="clickdetails">{{(list.receiptsDetail[0].money == null)?'':list.receiptsDetail[0].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[1].id}}" bindtap="clickdetails">{{(list.receiptsDetail[1].money == null)?'':list.receiptsDetail[1].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[2].id}}" bindtap="clickdetails">{{(list.receiptsDetail[2].money == null)?'':list.receiptsDetail[2].money}}</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">2</view>
+				<view class="td_02">场地使用费</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.receiptsDetail[3].id}}" bindtap="clickdetails">电梯广告位场地使用费</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[4].id}}" bindtap="clickdetails">快递柜场地使用费</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[5].id}}" bindtap="clickdetails">充电设备场地使用费</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[6].id}}" bindtap="clickdetails">广告位场地使用费</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[7].id}}" bindtap="clickdetails">商用设施场地使用费</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.receiptsDetail[3].id}}" bindtap="clickdetails">{{(list.receiptsDetail[3].money == null)?'':list.receiptsDetail[3].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[4].id}}" bindtap="clickdetails">{{(list.receiptsDetail[4].money == null)?'':list.receiptsDetail[4].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[5].id}}" bindtap="clickdetails">{{(list.receiptsDetail[5].money == null)?'':list.receiptsDetail[5].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[6].id}}" bindtap="clickdetails">{{(list.receiptsDetail[6].money == null)?'':list.receiptsDetail[6].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[7].id}}" bindtap="clickdetails">{{(list.receiptsDetail[7].money == null)?'':list.receiptsDetail[7].money}}</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">3</view>
+				<view class="td_02">公共车位租金</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.receiptsDetail[8].id}}" bindtap="clickdetails">地面公共车位租金</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[9].id}}" bindtap="clickdetails">地下公共车位租金</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[10].id}}" bindtap="clickdetails">商铺公共车位租金</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.receiptsDetail[8].id}}" bindtap="clickdetails">{{(list.receiptsDetail[8].money == null)?'':list.receiptsDetail[8].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[9].id}}" bindtap="clickdetails">{{(list.receiptsDetail[9].money == null)?'':list.receiptsDetail[9].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[10].id}}" bindtap="clickdetails">{{(list.receiptsDetail[10].money == null)?'':list.receiptsDetail[10].money}}</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">4</view>
+				<view class="td_02">公共车位临停费</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.receiptsDetail[11].id}}" bindtap="clickdetails">地面公共车位租金</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[12].id}}" bindtap="clickdetails">地下公共车位租金</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[13].id}}" bindtap="clickdetails">商铺公共车位租金</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.receiptsDetail[11].id}}" bindtap="clickdetails">{{(list.receiptsDetail[11].money == null)?'':list.receiptsDetail[11].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[12].id}}" bindtap="clickdetails">{{(list.receiptsDetail[12].money == null)?'':list.receiptsDetail[12].money}}</view>
+					<view class="td1" data-view-id="{{list.receiptsDetail[13].id}}" bindtap="clickdetails">{{(list.receiptsDetail[13].money == null)?'':list.receiptsDetail[13].money}}</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">5</view>
+				<view class="td_02" data-view-id="{{list.receiptsDetail[14].id}}" bindtap="clickdetails">场地使用短租金</view>
+				<view class="td_03">
+
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.receiptsDetail[14].id}}" bindtap="clickdetails">
+					{{(list.receiptsDetail[14].money == null)?'':list.receiptsDetail[14].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">6</view>
+				<view class="td_02" data-view-id="{{list.receiptsDetail[15].id}}" bindtap="clickdetails">其他收入</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.receiptsDetail[15].id}}" bindtap="clickdetails">
+					{{(list.receiptsDetail[15].money == null)?'':list.receiptsDetail[15].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">7</view>
+				<view class="td_02" data-view-id="{{list.receiptsDetail[16].id}}" bindtap="clickdetails">履约保证金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.receiptsDetail[16].id}}" bindtap="clickdetails">
+					{{(list.receiptsDetail[16].money == null)?'':list.receiptsDetail[16].money}}
+				</view>
+			</view>
+
+			<view class="tr">
+				<view class="td_01">8</view>
+				<view class="td_02" data-view-id="{{list.receiptsDetail[17].id}}" bindtap="clickdetails">投标保证金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.receiptsDetail[17].id}}" bindtap="clickdetails">
+					{{(list.receiptsDetail[17].money == null)?'':list.receiptsDetail[17].money}}
+				</view>
+			</view>
+
+			<view class="tr">
+				<view class="td_01">9</view>
+				<view class="td_02" data-view-id="{{list.receiptsDetail[16].id}}" bindtap="clickdetails">驻场押金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.receiptsDetail[16].id}}" bindtap="clickdetails">
+					{{(list.receiptsDetail[18].money == null)?'':list.receiptsDetail[18].money}}
+				</view>
+			</view>
+
+			<view class="tr">
+				<view class="td_01">10</view>
+				<view class="td_02" data-view-id="{{list.receiptsDetail[19].id}}" bindtap="clickdetails">其他押金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.receiptsDetail[19].id}}" bindtap="clickdetails">
+					{{(list.receiptsDetail[19].money == null)?'':list.receiptsDetail[19].money}}
+				</view>
+			</view>
+			<view class="tr1" style="background:#FFFB73;">
+				<view class="td1">本月经营收入</view>
+				<view class="td2">
+					{{list.reports.operationsReceipts != null ? list.reports.operationsReceipts:''}}
+				</view>
+			</view>
+			<view class="tr1" style="background:#FFFB73;">
+				<view class="td1">本月押金收入</view>
+				<view class="td2">
+					{{list.reports.depositReceipts != null ?list.reports.depositReceipts:''}}
+
+				</view>
+			</view>
+
+			<view class="tr">
+				<view class="td_01">1</view>
+				<view class="td_02">共用设施设备维修或改造费</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[0].id}}" bindtap="clickdetails">电梯</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[1].id}}" bindtap="clickdetails">监控</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[2].id}}" bindtap="clickdetails">门禁和道闸</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[3].id}}" bindtap="clickdetails">消防系统</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[4].id}}" bindtap="clickdetails">公共设施</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[5].id}}" bindtap="clickdetails">地下车场</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[6].id}}" bindtap="clickdetails">路电系统</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[7].id}}" bindtap="clickdetails">给排水</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[8].id}}" bindtap="clickdetails">土建工程</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[9].id}}" bindtap="clickdetails">其他</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[0].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[0].money == null)?'':list.disbursementsDetail[0].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[1].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[1].money == null)?'':list.disbursementsDetail[1].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[2].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[2].money == null)?'':list.disbursementsDetail[2].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[3].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[3].money == null)?'':list.disbursementsDetail[3].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[4].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[4].money == null)?'':list.disbursementsDetail[4].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[5].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[5].money == null)?'':list.disbursementsDetail[5].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[6].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[6].money == null)?'':list.disbursementsDetail[6].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[7].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[7].money == null)?'':list.disbursementsDetail[7].money}}
+
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[8].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[8].money == null)?'':list.disbursementsDetail[8].money}}
+
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[9].id}}" bindtap="clickdetails">
+						{{(list.disbursementsDetail[9].money == null)?'':list.disbursementsDetail[9].money}}
+					</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">2</view>
+				<view class="td_02">环境和绿化维护或提升费</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[10].id}}" bindtap="clickdetails">景观绿化类</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[11].id}}" bindtap="clickdetails">亭台休闲类</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[12].id}}" bindtap="clickdetails">其他</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[10].id}}" bindtap="clickdetails"> {{(list.disbursementsDetail[10].money == null)?'':list.disbursementsDetail[10].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[11].id}}" bindtap="clickdetails"> {{(list.disbursementsDetail[11].money == null)?'':list.disbursementsDetail[11].money}}
+					</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[12].id}}" bindtap="clickdetails"> {{(list.disbursementsDetail[12].money == null)?'':list.disbursementsDetail[12].money}}
+					</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">3</view>
+				<view class="td_02">业委会办公经费</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[13].id}}" bindtap="clickdetails">办公设备设施和物品</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[14].id}}" bindtap="clickdetails">第三方顾问咨询费</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[15].id}}" bindtap="clickdetails">信息技术使用费</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[13].id}}" bindtap="clickdetails">{{(list.disbursementsDetail[13].money == null)?'':list.disbursementsDetail[13].money}}</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[14].id}}" bindtap="clickdetails">{{(list.disbursementsDetail[14].money == null)?'':list.disbursementsDetail[14].money}}</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[15].id}}" bindtap="clickdetails">{{(list.disbursementsDetail[15].money == null)?'':list.disbursementsDetail[15].money}}</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">4</view>
+				<view class="td_02">业主大会经费</view>
+				<view class="td_03">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[16].id}}" bindtap="clickdetails">会务费</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[17].id}}" bindtap="clickdetails">会务保障费</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[18].id}}" bindtap="clickdetails">其他</view>
+				</view>
+				<view class="td_04">
+					<view class="td1" data-view-id="{{list.disbursementsDetail[16].id}}" bindtap="clickdetails"> {{(list.disbursementsDetail[16].money == null)?'':list.disbursementsDetail[16].money}}</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[17].id}}" bindtap="clickdetails">{{(list.disbursementsDetail[17].money == null)?'':list.disbursementsDetail[17].money}}</view>
+					<view class="td1" data-view-id="{{list.disbursementsDetail[18].id}}" bindtap="clickdetails">{{(list.disbursementsDetail[18].money == null)?'':list.disbursementsDetail[18].money}}</view>
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">5</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[19].id}}" bindtap="clickdetails">物业服务费补贴支出</view>
+				<view class="td_03">
+
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[19].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[19].money == null)?'':list.disbursementsDetail[19].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">6</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[20].id}}" bindtap="clickdetails">物业服务奖励金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[20].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[20].money == null)?'':list.disbursementsDetail[20].money}}
+
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">7</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[21].id}}" bindtap="clickdetails">补充专项维修资金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[21].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[21].money == null)?'':list.disbursementsDetail[21].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">8</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[22].id}}" bindtap="clickdetails">税费</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[22].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[22].money == null)?'':list.disbursementsDetail[22].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">9</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[23].id}}" bindtap="clickdetails">财务费用</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[23].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[23].money == null)?'':list.disbursementsDetail[23].money}}
+
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">10</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[24].id}}" bindtap="clickdetails">审计费用</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[24].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[24].money == null)?'':list.disbursementsDetail[24].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">11</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[25].id}}" bindtap="clickdetails">其他支出</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[25].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[25].money == null)?'':list.disbursementsDetail[25].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">12</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[26].id}}" bindtap="clickdetails">退履约保证金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[26].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[26].money == null)?'':list.disbursementsDetail[26].money}}
+				</view>
+			</view>
+			<view class="tr">
+				<view class="td_01">13</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[27].id}}" bindtap="clickdetails">退还投标证金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[27].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[27].money == null)?'':list.disbursementsDetail[27].money}}
+				</view>
+			</view>
+
+			<view class="tr">
+				<view class="td_01">14</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[28].id}}" bindtap="clickdetails">退驻场押金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[28].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[28].money == null)?'':list.disbursementsDetail[28].money}}
+				</view>
+			</view>
+
+			<view class="tr">
+				<view class="td_01">15</view>
+				<view class="td_02" data-view-id="{{list.disbursementsDetail[29].id}}" bindtap="clickdetails">退其他押金</view>
+				<view class="td_03">
+				</view>
+				<view class="td_04" style="text-decoration:underline;color:blue" data-view-id="{{list.disbursementsDetail[29].id}}" bindtap="clickdetails">
+					{{(list.disbursementsDetail[29].money == null)?'':list.disbursementsDetail[29].money}}
+				</view>
+			</view>
+
+			<view class="tr1" style="background:#FFFB73;">
+				<view class="td1">本月经营支出</view>
+				<view class="td2">
+					{{list.reports.operationsDisbursements != null ? list.reports.operationsDisbursements :''}}
+				</view>
+			</view>
+			<view class="tr1" style="background:#FFFB73;">
+				<view class="td1">本月押金支出</view>
+				<view class="td2">
+					{{list.reports.depositDisbursements != null ? list.reports.depositDisbursements :''}}
+				</view>
+			</view>
+			<view class="tr1" style="background:#F0C15A;">
+				<view class="td1">上月经营结余</view>
+				<view class="td2">
+					{{list.reports.operationsBlanceL != null ? list.reports.operationsBlanceL : ''}}
+				</view>
+			</view>
+			<view class="tr1" style="background:#F0C15A;">
+				<view class="td1">上月押金结余</view>
+				<view class="td2">
+					{{list.reports.depositBlanceL != null ? list.reports.depositBlanceL:''}}
+				</view>
+			</view>
+			<view class="tr1" style="background:#657E47;">
+				<view class="td1">本月经营结余</view>
+				<view class="td2">
+					{{list.reports.operationsBlance != null ?list.reports.operationsBlance:''}}
+
+				</view>
+			</view>
+			<view class="tr1" style="background:#657E47;height:17px;">
+				<view class="td1">本月押金结余</view>
+				<view class="td2">
+					{{list.reports.depositBlance != null ?list.reports.depositBlance:'' }}
+				</view>
+			</view>
+
+		</view>
+
+	</view>
+</view>

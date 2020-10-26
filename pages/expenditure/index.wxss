@@ -1,0 +1,76 @@
+.header-box {
+  border: 1px solid #ccc;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.box-card {
+  width: 100%;
+  /* display: flex;
+  align-items: center; */
+}
+
+.card-top {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.picker_01 {
+  font-size: 16px;
+}
+.time_01 {
+  width: 16px;
+  height: 16px;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+.card-top .card-top-box {
+  width: 100%;
+  height: 50px;
+  line-height: 20px;
+  background-color: #53B3BB;
+  padding: 5px;
+  margin: 10px;
+  font-size: 14px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 10px;
+}
+
+
+
+.btn-copy {
+  color: #81ABE8;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  /* height: 300px; */
+  margin: 10px 0;
+}
+
+.box .box-left {
+  width: 50%;
+  height: 250px;
+}
+
+.box-right {
+  width: 50%;
+  height: 250px;
+}
+.picker {
+  margin-left: 10px;
+  font-size: 12px;
+}
+.report {
+  padding: 10px;
+  text-align: right;
+  color: #79A7E7;
+}

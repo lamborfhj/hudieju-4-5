@@ -1,0 +1,74 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:0;">
+            <view class="weui-tab">
+                <view class="weui-navbar">
+                    <block wx:for="{{state.tabs}}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                        <block>
+                            <view id="{{index}}" class="{{state.activeIndex == index ? 'weui-navbar__item weui-bar__item_on' : 'weui-navbar__item'}}" bindtap="dispatchEvent" data-tap-uid="{{'e176_137_' + index}}" data-beacon-uid="default">
+                                <view class="weui-navbar__title">{{item}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-navbar__slider" style="{{'left: ' + state.sliderLeft + 'px; transform: translateX(' + state.sliderOffset + 'px); -webkit-transform: translateX(' + state.sliderOffset + 'px);'}}"></view>
+                </view>
+                <view class="weui-tab__panel">
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 0}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e185_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:for="{{state.list1}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                    <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e189_62_' + index}}" data-beacon-uid="default">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                                            <image src="{{item.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.name}}</view>
+                                            <view>¥{{item.money}}</view>
+                                            <view style="font-size: 13px;color: #888888;">{{"发生日期: " + item.happenDate}}</view>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 1}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e205_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:for="{{state.list2}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                    <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e209_62_' + index}}" data-beacon-uid="default">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                                            <image src="{{item.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.name}}</view>
+                                            <view>¥{{item.money}}</view>
+                                            <view style="font-size: 13px;color: #888888;">{{"发生日期: " + item.happenDate}}</view>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 2}}">
+                        <scroll-view scroll-y="true" bindscrolltolower="dispatchEvent" style="{{'height:' + state.scrollHeight + 'px;'}}" data-scrolltolower-uid="e225_45" data-beacon-uid="default">
+                            <view class="weui-cells weui-cells_after-title">
+                                <block wx:for="{{state.list3}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                                    <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e229_62_' + index}}" data-beacon-uid="default">
+                                        <view class="weui-cell__hd" style="margin-right: 10px;">
+                                            <image src="{{item.avatarUrl}}" class="avatar" />
+                                        </view>
+                                        <view class="weui-cell__bd">
+                                            <view>{{item.name}}</view>
+                                            <view>¥{{item.money}}</view>
+                                            <view style="font-size: 13px;color: #888888;">{{"发生日期: " + item.happenDate}}</view>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom_btn_area"><button bindtap="dispatchEvent" data-tap-uid="e247_20" data-beacon-uid="default">申请报销</button></view>
+        </view>
+    </view>

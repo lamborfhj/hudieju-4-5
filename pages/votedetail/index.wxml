@@ -1,0 +1,171 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-panel">
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd">{{state.detail.title}}</view>
+                            <view class="weui-cell__ft" style="color:#c8894e">{{state.detail.statusCn}}</view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">截止日期：</text><text>{{state.detail.endTime}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">表决内容：</text><text>{{state.detail.content}}</text></view>
+                        </view>
+                        <block wx:if="{{state.files.length}}">
+                            <view class="weui-cell">
+                                <view class="weui-cell__bd">
+                                    <block wx:for="{{state.files}}" wx:for-item="file" wx:for-index="i10773">
+                                        <view style="font-size:14px;color:blue;" bindtap="dispatchEvent" data-tap-uid="{{'e311_26_' + i10773}}" data-beacon-uid="default">{{file.name}}</view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{state.imgs.length}}">
+                            <view class="weui-cell">
+                                <view class="weui-cell__bd">
+                                    <block wx:for="{{state.imgs}}" wx:for-item="file" wx:for-index="i11323" wx:key="url">
+                                        <view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="{{'e325_26_' + i11323}}" data-beacon-uid="default">
+                                            <image src="{{file.url}}" class="img_small" />
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">
+                    <view class="weui-panel-title">
+                        <view class="weui-panel-title__bd">{{state.detail.typeCn}}表决</view>
+                        <view class="weui-panel-title__ft">{{"表决人数: " + state.detail.num + "人"}}</view>
+                    </view>
+                </view>
+                <view class="weui-panel__bd">
+                    <block wx:if="{{state.detail.itemType == 0}}">
+                        <block wx:for="{{state.statusVoters}}" wx:for-item="item" wx:for-index="i12251" wx:key="status">
+                            <block wx:if="{{item.status}}">
+                                <block>
+                                    <view class="weui-cell weui-cell_without_border" style="padding: 5px 15px">
+                                        <view class="weui-cell__bd">{{item.status + " " + item.voters.length + "人"}}</view>
+                                    </view>
+                                    <block wx:if="{{state.detail.type != 2}}">
+                                        <view class="weui-cell weui-cell_without_border">
+                                            <view class="weui-cell__bd">
+                                                <block wx:for="{{item.voters}}" wx:for-item="member" wx:for-index="i12769" wx:key="id">
+                                                    <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                                        <view bindtap="dispatchEvent" data-tap-uid="{{'e354_34_' + i12251 + '-' + i12769}}" data-beacon-uid="default">
+                                                            <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                                        </view>
+                                                        <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.name}}</text></view>
+                                                        <view><text style='font-size:10px;text-overflow:ellipsis;'>{{member.status === 3 || member.status === 0 ? '' : member.updateTime}}</text></view>
+                                                    </view>
+                                                </block>
+                                            </view>
+                                        </view>
+                                    </block>
+                                </block>
+                            </block>
+                        </block>
+                    </block>
+                    <block wx:if="{{state.detail.itemType == 1}}">
+                        <block wx:for="{{state.itemVoters}}" wx:for-item="item" wx:for-index="i13420" wx:key="item">
+                            <block wx:if="{{item.item}}">
+                                <block>
+                                    <view class="weui-cell weui-cell_without_border" style="padding: 5px 15px">
+                                        <view class="weui-cell__bd">{{item.item + " " + item.voters.length + "人"}}</view>
+                                    </view>
+                                    <block wx:if="{{state.detail.type != 2}}">
+                                        <view class="weui-cell weui-cell_without_border">
+                                            <view class="weui-cell__bd">
+                                                <block wx:for="{{item.voters}}" wx:for-item="member" wx:for-index="i13930" wx:key="id">
+                                                    <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                                        <view bindtap="dispatchEvent" data-tap-uid="{{'e373_34_' + i13420 + '-' + i13930}}" data-beacon-uid="default">
+                                                            <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                                        </view>
+                                                        <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.name}}</text></view>
+                                                        <view><text style='font-size:10px;text-overflow:ellipsis;'>{{member.status === 3 || member.status === 0 ? '' : member.updateTime}}</text></view>
+                                                    </view>
+                                                </block>
+                                            </view>
+                                        </view>
+                                    </block>
+                                </block>
+                            </block>
+                        </block>
+                    </block>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">抄送人</view>
+                <view class="weui-panel__bd">
+                    <block wx:if="{{state.detail.copy2VoteMemberEntityList && state.detail.copy2VoteMemberEntityList.length}}">
+                        <view class="weui-cell weui-cell_without_border">
+                            <view class="weui-cell__bd">
+                                <block wx:for="{{state.detail.copy2VoteMemberEntityList}}" wx:for-item="member" wx:for-index="i14951" wx:key="id">
+                                    <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                        <view>
+                                            <image src="{{member.memberAvatarUrl}}" class="avatar_small" />
+                                        </view>
+                                        <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.memberRealname}}</text></view>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">意见汇总</view>
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <block wx:for="{{state.opinions}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <block>
+                                <view class="weui-cell weui-cell_without_border">
+                                    <view class="weui-cell__hd" style="margin-right: 10px;">
+                                        <image src="{{item.memberAvatarUrl}}" class="avatar" />
+                                    </view>
+                                    <view class="weui-cell__bd">
+                                        <view>{{item.memberRealname}}</view>
+                                        <view style="font-size: 13px;">{{item.remark}}</view>
+                                    </view>
+                                </view>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <block wx:if="{{state.detail.itemType == 1 && state.detail.memberStatus == 0}}">
+                <view class="weui-panel">
+                    <view class="weui-panel__hd">请选择选项</view>
+                    <view class="weui-panel__bd">
+                        <view class="weui-cells weui-cells_after-title .weui-cells_without_border">
+                            <radio-group bindchange="dispatchEvent" data-change-uid="e428_31" data-beacon-uid="default">
+                                <block wx:for="{{state.options}}" wx:for-item="item" wx:for-index="i16922" wx:key="value">
+                                    <block>
+                                        <block wx:if="{{item.name != ''}}"><label class="weui-cell weui-check__label" style="padding: 5px 15px">
+                                                <radio class="weui-check" value="{{item.value}}" />
+                                                <view class="weui-cell__bd">{{item.name}}</view>
+                                                <block wx:if="{{item.checked}}">
+                                                    <view class="weui-cell__ft weui-cell__ft_in-radio">
+                                                        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+                                                    </view>
+                                                </block>
+                                            </label></block>
+                                    </block>
+                                </block>
+                            </radio-group>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{state.detail.memberStatus == 0}}">
+                <view class="weui-panel">
+                    <view class="weui-panel__hd">发表意见</view>
+                    <view class="weui-panel__bd">
+                        <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"><textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" bindblur="dispatchEvent" data-blur-uid="e456_96" data-beacon-uid="default" /></view></view></view></view></view></block><block wx:if="{{state.isBeforeEndtime}}"><view class="bottom_btn_area"><block wx:if="{{state.isAuditor && state.detail.status != 3 && state.detail.memberStatus == 0}}"><block><block wx:if="{{state.detail.itemType == 0}}"><block><button bindtap="dispatchEvent" data-tap-uid="e470_30" data-beacon-uid="default">不同意</button><button bindtap="dispatchEvent" data-tap-uid="e471_30" data-beacon-uid="default">同意</button></block></block><block wx:if="{{state.detail.itemType == 1}}"><button bindtap="dispatchEvent" data-tap-uid="e475_28" data-beacon-uid="default">确定</button></block><button bindtap="dispatchEvent" data-tap-uid="e477_26" data-beacon-uid="default">弃权</button></block></block><block wx:if="{{state.isOriginator && state.detail.status == 0}}"><button bindtap="dispatchEvent" data-tap-uid="e481_24" data-beacon-uid="default">撤销</button></block></view></block></view></view>

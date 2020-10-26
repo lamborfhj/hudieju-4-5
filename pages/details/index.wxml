@@ -1,0 +1,28 @@
+<!--pages/details/index.wxml-->
+<view>
+	<view class="table">
+		<view class="tr">
+			<view class="td">日期</view>
+			<view class="td">摘要</view>
+			<view class="td">会计科目</view>
+			<view class="td">辅助账</view>
+			<view class="td">金额</view>
+			<view class="td">附件</view>
+		</view>
+		<block wx:for="{{list}}" wx:for-item="item">
+			<view class="tr">
+				<view class="td">{{item.date}}</view>
+				<view class="td">{{item.digest}}</view>
+				<view class="td">{{item.accountsSubject.name}}</view>
+				<view class="td">{{item.digest}}</view>
+				<view class="td">{{item.money}}</view>
+				<view class="td">
+					<block wx:for="{{item.accessory.fileInfos}}" wx:for-item="itemurl">
+						<view style="font-size:8px;color:blue;word-break: break-word;" data-view-id='{{itemurl.url}}' bindtap="getUrl">{{itemurl.name}}</view>
+					</block>
+				</view>
+			</view>
+		</block>
+
+	</view>
+</view>

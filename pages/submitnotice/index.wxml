@@ -1,0 +1,51 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e135_16" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd"><input name="title" class="weui-input" placeholder="请输入公告标题" /></view>
+                    </view>
+                    <view class="weui-cell" style="padding: 0 15px;">
+                        <view class="weui-cell__bd" style="width: 100%;">
+                            <view class="toolbar">
+                                <view class="iconfont icon-charutupian" bindtap="dispatchEvent" data-tap-uid="e146_58" data-beacon-uid="default"></view>
+                                <view class="iconfont icon-format-header-2 {{state.toolbarStatus['header2'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e147_121" data-beacon-uid="default"></view>
+                                <view class="iconfont icon-format-header-3 {{state.toolbarStatus['header3'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e148_121" data-beacon-uid="default"></view>
+                                <view class="iconfont icon-zitijiacu {{state.toolbarStatus['bold'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e149_112" data-beacon-uid="default"></view>
+                                <view class="iconfont icon-zitixieti {{state.toolbarStatus['italic'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e150_114" data-beacon-uid="default"></view>
+                                <view class="iconfont icon-zitixiahuaxian {{state.toolbarStatus['underline'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e151_122" data-beacon-uid="default"></view>
+                                <view class="iconfont icon--checklist {{state.toolbarStatus['listcheck'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e152_118" data-beacon-uid="default"></view>
+                                <view class="iconfont icon-youxupailie {{state.toolbarStatus['listordered'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e153_121" data-beacon-uid="default"></view>
+                                <view class="iconfont icon-wuxupailie {{state.toolbarStatus['listbullet'] ? 'ql-active' : ''}}" bindtap="dispatchEvent" data-tap-uid="e154_119" data-beacon-uid="default"></view>
+                            </view>
+                            <view>
+                                <editor id="editor" class="ql-container" style='height:400px' bindready="dispatchEvent" data-ready-uid="e162_22" data-beacon-uid="default"></editor>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="weui-cell">
+                        <view class="weui-cell__hd"><text class="icon_star">*</text><text>收件人</text></view>
+                    </view>
+                    <view class="weui-cell weui-cell_without_border">
+                        <view class="weui-cell__bd">
+                            <block wx:for="{{state.addressees}}" wx:for-item="member" wx:for-index="i6434" wx:key="id">
+                                <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                    <view>
+                                        <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                    </view>
+                                    <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.realname}}</text></view>
+                                </view>
+                            </block>
+                            <view class="weui-uploader__file" bindtap="dispatchEvent" style='text-align:center;width:60px;' data-tap-uid="e182_52" data-beacon-uid="default">
+                                <view>
+                                    <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/add.png' class="avatar_small" />
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="bottom_btn_area"><button formType="submit" disabled="{{state.disabled}}">提交</button></view>
+                </view>
+            </form>
+        </view>
+    </view>

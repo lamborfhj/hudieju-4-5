@@ -1,0 +1,58 @@
+
+    <view class="page">
+        <block wx:if="{{state.detail}}">
+            <view class="page__bd" style="padding-bottom:56px;">
+                <view class="weui-panel">
+                    <view class="weui-panel__bd">
+                        <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd">{{state.detail.title}}</view>
+                            </view>
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"><text style="color:#898989">参会开始时间：{{state.detail.meetingStartTime}}</text></view>
+                            </view>
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"><text style="color:#898989">参会结束时间：{{state.detail.meetingEndTime}}</text></view>
+                            </view>
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"><text style="color:#898989">投票开始时间：{{state.detail.voteStartTime}}</text></view>
+                            </view>
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"><text style="color:#898989">投票结束时间：{{state.detail.voteEndTime}}</text></view>
+                            </view>
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"><text style="color:#898989">小区总户数：{{state.voteInfo.totalVoteQuantity}}户</text></view>
+                            </view>
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"><text style="color:#898989">小区总面积：{{state.voteInfo.totalVoteArea}}m²</text></view>
+                            </view>
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd"></view>
+                            </view>
+                            <block wx:if="{{state.detail.offlineVoteResultUrl}}">
+                                <view style="{{props['style8708'] }}">
+                                    <view>最终线下投票结果</view>
+                                    <image class="resultPic" src="{{state.detail.offlineVoteResultUrl}}" />
+                                </view>
+                            </block>
+                            <block wx:if="{{state.detail.bflyStatVoteList && state.detail.bflyStatVoteList.length > 0}}">
+                                <view>
+                                    <view class="title">最终线上投票结果</view>
+                                    <block wx:for="{{state.detail.bflyStatVoteList}}" wx:for-item="historyItem" wx:for-index="index" wx:key="id">
+                                        <view class="weui-cell__bd">
+                                            <view class="weui-cell__bd title">子表决{{index + 1}}:{{" "}}{{historyItem.bflySubVoteTitle}}</view>
+                                            <view class="tableTitle">
+                                                <block wx:if="{{historyItem.totalVoteQuantity}}">{{"小区总户数：" + historyItem.totalVoteQuantity}}</block>{{" "}}
+                                                <block wx:if="{{historyItem.totalVoteArea}}">{{"小区总面积：" + historyItem.totalVoteArea + "m²"}}</block>
+                                            </view>
+                                            <anu-votetable data-instance-uid="{{'i156_28_' + index}}" />
+                                        </view>
+                                    </block>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>

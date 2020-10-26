@@ -1,0 +1,7 @@
+.pagebox {
+  background-color: #fff;
+  padding: 30px 20px 50px 20px;
+}
+.pagebox > view {
+  margin-bottom: 15px;
+}

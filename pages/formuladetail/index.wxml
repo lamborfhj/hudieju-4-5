@@ -1,0 +1,113 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:56px;">
+            <view class="weui-panel">
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__hd" style="margin-right: 10px;">
+                                <image src="{{state.detail.avatarUrl}}" class="avatar" />
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view>{{state.detail.title}}</view>
+                                <view style="font-size: 13px;color: #c8894e;">{{state.detail.statusCn}}</view>
+                            </view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">公示人：</text><text>{{state.detail.manager}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">经办人：</text><text>{{state.detail.realname}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">开始日期：</text><text>{{state.detail.startTime}}</text></view>
+                        </view>
+                        <view class="weui-cell" style="padding: 5px 15px">
+                            <view class="weui-cell__bd"><text style="color:#898989">截止日期：</text><text>{{state.detail.endTime}}</text></view>
+                        </view>
+                        <block wx:if="{{state.files.length}}">
+                            <view class="weui-cell">
+                                <view class="weui-cell__bd">
+                                    <block wx:for="{{state.files}}" wx:for-item="file" wx:for-index="i6340">
+                                        <view style="font-size:14px;color:blue;" bindtap="dispatchEvent" data-tap-uid="{{'e189_26_' + i6340}}" data-beacon-uid="default">{{file.name}}</view>
+                                    </block>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">详情</view>
+                <view class="weui-panel__bd" style="padding: 5px 15px">
+                   <parser html="{{state.detail.content}}" />
+                </view>
+            </view>
+            <block wx:if="{{state.imgs.length}}">
+                <view class="weui-panel">
+                    <view class="weui-panel__hd">图片详情</view>
+                    <view class="weui-panel__bd" style="padding: 5px 15px">
+                        <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                            <block wx:for="{{state.imgs}}" wx:for-item="file" wx:for-index="i7955" wx:key="url">
+                                <view class="weui-cell">
+                                    <view class="weui-cell__hd" style="margin-right: 10px;" bindtap="dispatchEvent" data-tap-uid="{{'e230_80_' + i7955}}" data-beacon-uid="default">
+                                        <image src="{{file.url}}" class="img_small" />
+                                    </view>
+                                    <view class="weui-cell__bd">
+                                        <view style="font-size: 13px;color: #888888;">{{"上传时间: " + file.createTime}}</view>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">完成情况说明</view>
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <block wx:if="{{state.detail.remark}}">
+                            <view class="weui-cell" style="padding: 5px 15px">
+                                <view class="weui-cell__bd">{{state.detail.remark || ""}}</view>
+                            </view>
+                        </block>
+                        <block wx:if="{{state.detail.publicityFileList}}">
+                            <block wx:for="{{state.detail.publicityFileList}}" wx:for-item="file" wx:for-index="i9189" wx:key="url">
+                                <view class="weui-cell weui-cell_without_border">
+                                    <view class="weui-cell__hd" style="margin-right: 10px;" bindtap="dispatchEvent" data-tap-uid="{{'e256_78_' + i9189}}" data-beacon-uid="default">
+                                        <image src="{{file.url}}" class="img_small" />
+                                    </view>
+                                    <view class="weui-cell__bd">
+                                        <view style="font-size: 13px;color: #888888;">{{"上传时间: " + file.createTime}}</view>
+                                    </view>
+                                </view>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">收件人</view>
+                <view class="weui-panel__bd">
+                    <block wx:if="{{state.detail.memberEntityList && state.detail.memberEntityList.length}}">
+                        <view class="weui-cell weui-cell_without_border">
+                            <view class="weui-cell__bd">
+                                <block wx:for="{{state.detail.memberEntityList}}" wx:for-item="member" wx:for-index="i10943" wx:key="id">
+                                    <view class="weui-uploader__file" style='text-align:center;width:60px;'>
+                                        <view>
+                                            <image src="{{member.avatarUrl}}" class="avatar_small" />
+                                        </view>
+                                        <view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.realname}}</text></view>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view class="bottom_btn_area">
+                <block wx:if="{{!state.isBeforeEndtime && state.detail.status == 0 && state.isAuditor}}"><button bindtap="dispatchEvent" data-tap-uid="e305_22" data-beacon-uid="default">完成公示</button></block>
+                <block wx:if="{{state.isBeforeEndtime && state.detail.status == 0 && state.isOriginator}}"><button bindtap="dispatchEvent" data-tap-uid="e308_22" data-beacon-uid="default">撤销</button></block>
+            </view>
+        </view>
+    </view>

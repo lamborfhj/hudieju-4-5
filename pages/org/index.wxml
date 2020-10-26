@@ -1,0 +1,60 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom:0;">
+            <view class="weui-tab">
+                <view class="weui-navbar">
+                    <block wx:for="{{state.tabs}}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                        <block>
+                            <view id="{{index}}" class="{{state.activeIndex == index ? 'weui-navbar__item weui-bar__item_on' : 'weui-navbar__item'}}" bindtap="dispatchEvent" data-tap-uid="{{'e105_137_' + index}}" data-beacon-uid="default">
+                                <view class="weui-navbar__title">{{item}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <view class="weui-navbar__slider" style="{{'left: ' + state.sliderLeft + 'px; transform: translateX(' + state.sliderOffset + 'px); -webkit-transform: translateX(' + state.sliderOffset + 'px);'}}"></view>
+                </view>
+                <view class="weui-tab__panel">
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 0}}">
+                        <block wx:for="{{state.members}}" wx:for-item="group" wx:for-index="i3332" wx:key="groupName">
+                            <block>
+                                <block wx:if="{{group.userEntityList.length > 0}}">
+                                    <view>
+                                        <view class="weui-cells__title">{{group.groupName}}</view>
+                                        <view class="weui-cells weui-cells_after-title">
+                                            <block wx:for="{{group.userEntityList}}" wx:for-item="member" wx:for-index="i3690" wx:key="id">
+                                                <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e121_69_' + i3332 + '-' + i3690}}" data-beacon-uid="default">
+                                                    <view class="weui-cell__hd" style="margin-right: 10px;">
+                                                        <image src="{{member.avatarUrl}}" class="avatar" />
+                                                    </view>
+                                                    <view class="weui-cell__bd">
+                                                        <view>{{member.realname}}</view>
+                                                        <view style="font-size: 13px;color: #888888;">
+                                                            <view style="float: left;margin-right: 10px;"><text>{{member.roleName}}</text></view>
+                                                            <block wx:if="{{state.isShowPhone}}">
+                                                                <view style="float: left;"><text>{{group.groupName === '行业主管' ? '' : '电话：'}}</text><text style="color: #65a5ff;" catchtap="dispatchEvent" data-tap-uid="{{'e132_70_' + i3332 + '-' + i3690}}" data-beacon-uid="default">{{group.groupName === '行业主管' ? '' : member.mobile}}</text></view>
+                                                            </block>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                            </block>
+                                        </view>
+                                    </view>
+                                </block>
+                            </block>
+                        </block>
+                    </view>
+                    <view class="weui-tab__content" hidden="{{state.activeIndex != 1}}">
+                        <view class="weui-panel">
+                            <view class="weui-panel__bd">
+                                <view style="margin-top: 5px;padding-left:10px;"><text style="color: #c8894e;margin-right: 10px;">[小区位置]</text><text style="font-weight: 500;">{{state.zoneName}}</text></view>
+                                <view style="color:#898989;font-size:14px;margin: 5px 0;padding-left:10px;">{{"地址: " + state.zoneAddress}}</view>
+                                <view style="color:#898989;font-size:14px;margin: 5px 0;padding-left:10px;" catchtap="dispatchEvent" data-tap-uid="e182_96" data-beacon-uid="default">注册邀请码：<text style="color:#04be02;">{{state.code}}</text>
+                                    <image src="{{'../../assets/images/far.svg'}}" style="width:15px;height:15px;margin-left:10px" />
+                                </view>
+                                <view style="color:#898989;font-size:14px;margin: 5px 0;padding-left:10px;">{{"有效使用截止时间：" + state.time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>

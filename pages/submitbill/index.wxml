@@ -1,0 +1,39 @@
+
+    <view class="page" style='padding-bottom:56px;'>
+        <view class="page__bd" style="padding-bottom:56px;">
+            <form bindsubmit="dispatchEvent" data-submit-uid="e191_16" data-beacon-uid="default">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>报销人</view>
+                        </view>
+                        <view class="weui-cell__bd"><input name="name" class="weui-input" value="{{state.name}}" /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>报销金额</view>
+                        </view>
+                        <view class="weui-cell__bd"><input type="digit" name="money" class="weui-input" placeholder="请输入报销金额" /></view>
+                    </view>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label"><text class="icon_star">*</text>发生日期</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker name="happenDate" mode="date" start="2015-01-01" end="2030-09-01" bindchange="dispatchEvent" data-change-uid="e215_92" data-beacon-uid="default">
+                                <view class="weui-input">{{state.date}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label"><text class="icon_star">*</text>审批方式</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker range="{{state.approvalTypes}}" range-key='value' bindchange="dispatchEvent" data-change-uid="e225_77" data-beacon-uid="default">
+                                <view class="weui-select">{{state.approvalTypeName}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd"><textarea name="content" class="weui-textarea" placeholder="请输入报销说明「必填」" style="height: 3.3em" /></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.imgs}}" wx:for-item="url" wx:for-index="i7582" wx:key="*this"><view class="weui-uploader__file" bindtap="dispatchEvent" bindlongpress="dispatchEvent" data-tap-uid="{{'e240_22_' + i7582}}" data-beacon-uid="default" data-longpress-uid="{{'e241_22_' + i7582}}"><image src="{{url}}" class="img_small" /></view></block><block wx:if="{{state.maxImageNum - state.imgs.length > 0}}"><view class="weui-uploader__file" bindtap="dispatchEvent" data-tap-uid="e247_54" data-beacon-uid="default"><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/avatar.png' class="img_small" /></view></block></view></view><view class="weui-cell"><view class="weui-cell__hd"><text class="icon_star">*</text><text>审批人</text></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.approveres}}" wx:for-item="member" wx:for-index="i8688" wx:key="id"><view class="weui-uploader__file" style='text-align:center;width:60px;'><view><image src="{{member.avatarUrl}}" class="avatar_small" /></view><view><text style='font-size:14px;text-overflow:ellipsis;'>{{member.realname}}</text></view></view></block></view></view><view class="weui-cell"><view class="weui-cell__hd"><text>抄送人</text></view></view><view class="weui-cell weui-cell_without_border"><view class="weui-cell__bd"><block wx:for="{{state.copies}}" wx:for-item="member" wx:for-index="i9426" wx:key="id"><view class="weui-uploader__file" style='text-align:center;width:60px;'><view><image src="{{member.avatarUrl}}" class="avatar_small" /></view><view><text style='font-size:14px;'>{{member.realname}}</text></view></view></block><view class="weui-uploader__file" bindtap="dispatchEvent" style='text-align:center;width:60px;' data-tap-uid="e282_52" data-beacon-uid="default"><view><image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/add.png' class="avatar_small" /></view></view></view></view><view class="bottom_btn_area"><button formType="submit" disabled="{{state.disabled}}">提交</button></view></view></form></view></view>

@@ -1,0 +1,88 @@
+
+    <view class="page">
+        <view class="page__bd" style="padding-bottom: 0;">
+            <view class="page-section page-section-spacing swiper">
+                <swiper autoplay="{{true}}" interval="{{3000}}" style="height: 35vh;">
+                    <swiper-item>
+                        <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/index_1.jpg' style="height:100%;width:100%;object-fit:cover;" />
+                    </swiper-item>
+                    <swiper-item>
+                        <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/index_2_new.jpg' style="height:100%;width:100%;object-fit:cover;" />
+                    </swiper-item>
+                    <swiper-item>
+                        <image src='https://ywh-hdj.oss-cn-hangzhou.aliyuncs.com/2.png' style="height:100%;width:100%;object-fit:cover;" />
+                    </swiper-item>
+                </swiper>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__bd">
+                    <view class="weui-grids">
+                        <block wx:for="{{state.modules}}" wx:for-item="item" wx:for-index="i7107" wx:key="name">
+                            <view class="weui-grid my-grid" hover-class="weui-grid_active" bindtap="dispatchEvent" data-tap-uid="{{'e207_101_' + i7107}}" data-beacon-uid="default">
+                                <image class="weui-grid__icon img_small" src="{{item.img}}" />
+                                <block wx:if="{{state.waits && state.waits[item.field] > 0}}">
+                                    <view class="weui-badge" style="position: absolute;top: 0.5em;left: 55%;">{{state.waits[item.field]}}</view>
+                                </block>
+                                <view class="weui-grid__label my_label">{{item.name}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel">
+                <view class="weui-panel__hd">最新消息</view>
+                <view class="weui-panel__bd">
+                    <view class="weui-cells weui-cells_after-title weui-cells_without_border">
+                        <block wx:for="{{state.notices}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e225_58_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__bd">
+                                    <block wx:if="{{item.creatorGroup == \"小区业主\" || item.creatorGroup == \"业主委员会\"}}">
+                                        <view style="color: green;">{{item.title}}</view>
+                                    </block>
+                                    <block wx:elif="true">
+                                        <block wx:if="{{item.creatorGroup == \"物业公司\"}}">
+                                            <view style="color: purple;">{{item.title}}</view>
+                                        </block>
+                                        <block wx:elif="true">
+                                            <view style="color: red;">{{item.title}}</view>
+                                        </block>
+                                    </block>
+                                    <view style="font-size: 13px;color: #888888;"><text>{{item.createTime}}</text>
+                                        <image src='https://yeweihui-mini.oss-cn-shanghai.aliyuncs.com/mini/eye.png' style="width: 14px;height: 10px;margin: 0 3px 0 15px;" /><text>{{item.readCount || 0}}</text></view>
+                                </view>
+                                <block wx:if="{{item.memberStatus == 1}}">
+                                    <view class="weui-cell__ft">
+                                        <view class="weui-badge weui-badge_dot" style="font-size:10px;"></view>
+                                    </view>
+                                </block>
+                            </view>
+                        </block>
+                        <block wx:for="{{state.formulas}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e250_58_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"截止日期: " + item.endTime}}</view>
+                                    <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:for="{{state.meetings}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                            <view class="weui-cell" bindtap="dispatchEvent" data-tap-uid="{{'e264_58_' + index}}" data-beacon-uid="default">
+                                <view class="weui-cell__hd" style="margin-right: 10px;">
+                                    <image src="{{item.avatarUrl}}" class="avatar" />
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view>{{item.title}}</view>
+                                    <view style="font-size: 13px;color: #888888;">{{"会议日期: " + item.startAt}}</view>
+                                    <view style="font-size: 13px;color: #c8894e;">{{item.statusCn}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
