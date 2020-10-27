@@ -3,7 +3,7 @@
 		<text>本小区公共收支的银行账户信息</text>
 		<view>
 			<view>
-				<text>户名：</text>
+				<text>开户名：</text>
 				<text>{{name}}</text>
 			</view>
 			<view>
